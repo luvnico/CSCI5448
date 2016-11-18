@@ -1,0 +1,63 @@
+CREATE TABLE User (
+	emailAddress VARCHAR(20) NOT NULL PRIMARY KEY,
+	password VARCHAR(20) NOT NULL,
+	loginStatus Bool
+)ENGINE=InnoDB;	
+
+
+CREATE TABLE Posting (
+	P_id int(11) NOT NULL AUTO_INCREMENT,
+	User_Email VARCHAR(20) NOT NULL, 
+	title VARCHAR(50) NOT NULL,
+	type VARCHAR(20) NOT NULL,
+	description VARCHAR(500),
+	PRIMARY KEY (P_id),
+	FOREIGN KEY (User_Email) REFERENCES User(emailAddress) ON DELETE CASCADE
+)ENGINE=InnoDB;	
+
+
+
+CREATE TABLE Item (
+	Item_id int(11) NOT NULL AUTO_INCREMENT,
+	Posting_id int(11) NOT NULL,
+	name VARCHAR(20),
+	category VARCHAR(20),
+	price VARCHAR(10),
+	quantity int(5),
+	isSold Bool,
+	PRIMARY KEY (Item_id),
+	FOREIGN KEY (Posting_id) REFERENCES Posting(P_id) ON DELETE CASCADE
+)ENGINE=InnoDB;
+
+
+
+CREATE TABLE HousingWanted (
+	HWanted_id int(11) NOT NULL AUTO_INCREMENT,
+	Posting_id int(11) NOT NULL,
+	area int(4),
+	catOK Bool,
+	dogOK Bool,
+	lowerBound decimal(10, 2),
+	HigherBound decimal(10,2),
+	PRIMARY KEY (HWanted_id),
+	FOREIGN KEY (Posting_id) REFERENCES Posting(P_id) ON DELETE CASCADE
+)ENGINE=InnoDB;
+
+
+CREATE TABLE HousingOffered (
+	HOffered_id int(11) NOT NULL AUTO_INCREMENT,
+	Posting_id int(11) NOT NULL,
+	area int(4),
+	catOK Bool,
+	dogOK Bool,
+	price decimal(10,2),
+	availableDate DATE,
+	isFurnished Bool,
+	noSmoking Bool,
+	numOfBedroom float(3,1),
+	numOfBath float(3,1),
+	parkingOpt VARCHAR(10),
+	laundayOpt VARCHAR(10),
+	PRIMARY KEY (HOffered_id),
+	FOREIGN KEY (Posting_id) REFERENCES Posting(P_id) ON DELETE CASCADE
+)ENGINE=InnoDB;
