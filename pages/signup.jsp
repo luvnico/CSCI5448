@@ -51,6 +51,9 @@
 
 		<!-- Custom css --> 
 		<link href="css/custom.css" rel="stylesheet">
+		
+		<!-- Jquery files -->
+		<script type="text/javascript" src="plugins/jquery.min.js"></script>
 	</head>
 
 	<!-- body classes:  -->
@@ -78,7 +81,7 @@
 			<div class="breadcrumb-container">
 				<div class="container">
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+						<li><i class="fa fa-home pr-10"></i><a href="jsp">Home</a></li>
 						<li class="active">Page Sign Up</li>
 					</ol>
 				</div>
@@ -93,27 +96,28 @@
 						<!-- main start -->
 						<!-- ================ -->
 						<div class="main object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
-							<div class="form-block center-block p-30 light-gray-bg border-clear">
-								<h2 class="title">Sign Up</h2>
+							<div id="sign-up-box" class="form-block center-block p-30 light-gray-bg border-clear" style="display:none">
+								<h2 class="title" style="display: inline">Sign Up</h2>
+								<a id="change2signin" style="float:right; cursor:pointer">Already have an account? Sign in here</a>
 								<form class="form-horizontal" role="form">
 									<div class="form-group has-feedback">
-										<label for="inputName" class="col-sm-3 control-label">First Name <span class="text-danger small">*</span></label>
+										<label for="inputName" class="col-sm-3 control-label">First Name</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputName" placeholder="Fisrt Name" required>
+											<input type="text" class="form-control" id="inputName" placeholder="First Name">
 											<i class="fa fa-pencil form-control-feedback"></i>
 										</div>
 									</div>
 									<div class="form-group has-feedback">
-										<label for="inputLastName" class="col-sm-3 control-label">Last Name <span class="text-danger small">*</span></label>
+										<label for="inputLastName" class="col-sm-3 control-label">Last Name</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputLastName" placeholder="Last Name" required>
+											<input type="text" class="form-control" id="inputLastName" placeholder="Last Name">
 											<i class="fa fa-pencil form-control-feedback"></i>
 										</div>
 									</div>
 									<div class="form-group has-feedback">
-										<label for="inputUserName" class="col-sm-3 control-label">User Name <span class="text-danger small">*</span></label>
+										<label for="inputUserName" class="col-sm-3 control-label">User Name</label>
 										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputUserName" placeholder="User Name" required>
+											<input type="text" class="form-control" id="inputUserName" placeholder="User Name">
 											<i class="fa fa-user form-control-feedback"></i>
 										</div>
 									</div>
@@ -126,6 +130,13 @@
 									</div>
 									<div class="form-group has-feedback">
 										<label for="inputPassword" class="col-sm-3 control-label">Password <span class="text-danger small">*</span></label>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+											<i class="fa fa-lock form-control-feedback"></i>
+										</div>
+									</div>
+									<div class="form-group has-feedback">
+										<label class="col-sm-3 control-label">Confirm your password <span class="text-danger small">*</span></label>
 										<div class="col-sm-8">
 											<input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
 											<i class="fa fa-lock form-control-feedback"></i>
@@ -146,7 +157,48 @@
 										</div>
 									</div>
 								</form>
+
 							</div>
+
+							<!-- log in start -->
+							<!-- ------------ -->
+							<div id="sign-in-box" class="form-block center-block p-30 light-gray-bg border-clear">
+								<h2 class="title" style="display:inline">Sign In</h2>
+								<a id="change2signup" style="float:right; cursor:pointer">Register a new account</a>
+								<form class="form-horizontal" role="form">
+									<div class="form-group has-feedback">
+										<label for="inputEmail" class="col-sm-3 control-label">Email <span class="text-danger small">*</span></label>
+										<div class="col-sm-8">
+											<input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+											<i class="fa fa-envelope form-control-feedback"></i>
+										</div>
+									</div>
+									<div class="form-group has-feedback">
+										<label for="inputPassword" class="col-sm-3 control-label">Password <span class="text-danger small">*</span></label>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+											<i class="fa fa-lock form-control-feedback"></i>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-offset-3 col-sm-8">
+											<button type="submit" class="btn btn-group btn-default btn-animated">Sign In <i class="fa fa-check"></i></button>
+										</div>
+									</div>
+								</form>
+							</div>
+							<!-- log in end -->
+							<script>
+								$("#change2signin").click(function(){
+									$("#sign-up-box").hide();
+									$("#sign-in-box").show();
+								});
+								$("#change2signup").click(function(){
+									$("#sign-in-box").hide();
+									$("#sign-up-box").show();
+								});
+							</script>
 						</div>
 						<!-- main end -->
 					</div>
