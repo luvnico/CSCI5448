@@ -33,22 +33,7 @@ public class Account {
 		
 		matched = BCrypt.checkpw(password, password_hash);
 		return matched;
-		
-	
-		/*
-		int count = 0;
 
-		if (rs.next()) {
-			count = rs.getInt("count");
-		}
-		
-		rs.close();
-
-		if (count == 0) {
-			return false;
-		} else {
-			return true;
-		}*/
 	}
 	
 	public void create(String email, String password) throws SQLException {
@@ -94,5 +79,22 @@ public class Account {
 		} else {
 			return true;
 		}
+	}
+	
+	
+	public void post(String email, String type, String title, String description) throws SQLException {
+
+		String sql = "INSERT INTO Posting(User_Email, title, type, description) VALUES(?,?,?,?)";
+
+		PreparedStatement stmt = conn.prepareStatement(sql);
+
+		stmt.setString(1, email);
+		stmt.setString(2, title);
+		stmt.setString(3, type);
+		stmt.setString(4, description);
+		
+
+		stmt.executeUpdate();
+		stmt.close();
 	}
 }

@@ -33,7 +33,9 @@
 
 <p>Account created with email:</p>
 
-<p><%= request.getAttribute("email") %></p>
+<p class="message"><%= session.getAttribute("createEmail") %></p>
+
+<a href="/Project/Controller?action=createposting">Go to post</a>
 
 </div>
 

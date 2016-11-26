@@ -33,8 +33,8 @@
 
 <p>You are logged in.</p>
 
-<p><%= request.getAttribute("email") %></p>
-
+<p class="message"><%= session.getAttribute("loginEmail") %></p>
+<a href="/Project/Controller?action=createposting">Go to post</a>
 </div>
 
 

@@ -15,10 +15,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
+import beans.Posting;
 import beans.User;
 import database.Account;
+
 
 /**
  * Servlet implementation class Controller
@@ -60,6 +63,7 @@ public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 
+		HttpSession session = request.getSession(true);
 		PrintWriter out = response.getWriter();
 		String action = request.getParameter("action");
 
@@ -67,18 +71,28 @@ public class Controller extends HttpServlet {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
 		else if(action.equals("login")) {
-			request.setAttribute("email", "");
-			request.setAttribute("password", "");
-			request.setAttribute("message", "");
+			session.setAttribute("email", "");
+			session.setAttribute("password", "");
+			session.setAttribute("message", "");
 			request.getRequestDispatcher("/login.jsp").forward(request, response);
 		}
 		else if(action.equals("createaccount")) {
-			request.setAttribute("email", "");
-			request.setAttribute("password", "");
-			request.setAttribute("repeatpassword", "");
-			request.setAttribute("message", "");
+			session.setAttribute("email", "");
+			session.setAttribute("password", "");
+			session.setAttribute("repeatpassword", "");
+			session.setAttribute("message", "");
 			request.getRequestDispatcher("/createaccount.jsp").forward(request, response);
 		}
+		
+		else if(action.equals("createposting")) {
+			session.setAttribute("email", "");
+			session.setAttribute("title", "");
+			session.setAttribute("type", "");
+			session.setAttribute("description", "");
+			request.getRequestDispatcher("/createposting.jsp").forward(request, response);
+		}
+		
+		
 		else {
 			out.println("unrecognised action");
 			return;
@@ -94,6 +108,7 @@ public class Controller extends HttpServlet {
 
 		// use connection
 		PrintWriter out = response.getWriter();
+		HttpSession session = request.getSession(true);
 
 		String action = request.getParameter("action");
 
@@ -119,7 +134,7 @@ public class Controller extends HttpServlet {
 		if(action.equals("dologin")) {
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
-			
+			session.setAttribute("loginEmail", email);
 			User user = new User(email, password);
 			
 			request.setAttribute("email", email);
@@ -146,7 +161,8 @@ public class Controller extends HttpServlet {
 			String password = request.getParameter("password");
 			String repeatPassword = request.getParameter("repeatpassword");
 			
-			request.setAttribute("email", email);
+			//request.setAttribute("email", email);
+			session.setAttribute("createEmail", email);
 			request.setAttribute("password", "");
 			request.setAttribute("repeatpassword", "");
 			request.setAttribute("message", "");
@@ -184,17 +200,62 @@ public class Controller extends HttpServlet {
 				
 			}
 		}
+		
+		
+		else if(action.equals("createposting")) {
+			if((session.getAttribute("loginEmail") == null) && (session.getAttribute("createEmail") == null)){
+				request.getRequestDispatcher("/login.jsp").forward(request, response);
+			}
+				
+			else{	
+
+				String title = request.getParameter("title");
+				String type = request.getParameter("type");
+				String description = request.getParameter("description");
+				
+				//Posting posting = new Posting(email,title, type, description);
+			
+				
+				try{
+					String email = "";
+					if( session.getAttribute("loginEmail") != null ){
+						email = (String)session.getAttribute("loginEmail");
+						
+					}
+					
+					else if( session.getAttribute("createEmail") != null ){
+						email = (String)session.getAttribute("createEmail");
+						
+					}
+					account.post(email, title, type, description);
+					request.getRequestDispatcher("/home.jsp").forward(request, response);
+				}catch (SQLException e) {
+				
+					request.getRequestDispatcher("/error.jsp").forward(request, response);
+				}
+			}
+			
+		}
+		
+		
 		else {
 			out.println("unrecognised action");
 		}
 		
 
+		
+		
+		
+		
 		try {
 			conn.close();
 		} catch (SQLException e) {
 			throw new ServletException();
 		}
+		//session.invalidate();
 	}
+	
+
 	
 	public void createAccount() {
 		

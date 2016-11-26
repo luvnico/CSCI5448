@@ -46,7 +46,7 @@ table {
 
 <form method="post" action="<%= response.encodeUrl(request.getContextPath() + "/Controller?action=createaccount") %>">
 
-<input type="hidden" name="action" value="createAccount" />
+<input type="hidden" name="action" value="createaccount" />
 
 <table>
 
@@ -58,6 +58,8 @@ table {
 </table>
 
 <p class="message"><%= request.getAttribute("message") %></p>
+<p class="message"><%= session.getAttribute("createEmail") %></p>
+
 
 </form>
 
