@@ -1,3 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if gt IE 9]> <html lang="en" class="ie"> <![endif]-->
@@ -51,6 +54,14 @@
 
 		<!-- Custom css --> 
 		<link href="css/custom.css" rel="stylesheet">
+		
+		<!-- Jquery files -->
+		<script type="text/javascript" src="plugins/jquery.min.js"></script>
+		<style>
+		.clearfix {
+		  overflow: auto;
+		}
+		</style>
 	</head>
 
 	<!-- body classes:  -->
@@ -78,7 +89,7 @@
 			<div class="breadcrumb-container">
 				<div class="container">
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+						<li><i class="fa fa-home pr-10"></i><a href="jsp">Home</a></li>
 						<li class="active">Page Sign Up</li>
 					</ol>
 				</div>
@@ -93,41 +104,30 @@
 						<!-- main start -->
 						<!-- ================ -->
 						<div class="main object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
-							<div class="form-block p-30 light-gray-bg border-clear">
-								<h2 class="title">Sign Up</h2>
-								<form class="form-horizontal" role="form">
-									<div class="form-group has-feedback">
-										<label for="inputName" class="col-sm-3 control-label">First Name <span class="text-danger small">*</span></label>
-										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputName" placeholder="Fisrt Name" required>
-											<i class="fa fa-pencil form-control-feedback"></i>
-										</div>
-									</div>
-									<div class="form-group has-feedback">
-										<label for="inputLastName" class="col-sm-3 control-label">Last Name <span class="text-danger small">*</span></label>
-										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputLastName" placeholder="Last Name" required>
-											<i class="fa fa-pencil form-control-feedback"></i>
-										</div>
-									</div>
-									<div class="form-group has-feedback">
-										<label for="inputUserName" class="col-sm-3 control-label">User Name <span class="text-danger small">*</span></label>
-										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputUserName" placeholder="User Name" required>
-											<i class="fa fa-user form-control-feedback"></i>
-										</div>
-									</div>
+							<div class="form-block center-block p-30 light-gray-bg border-clear clearfix" style="width:80%">
+							
+								<div class="col-md-6">
+								<h2 class="title">Sign Up</h2>	
+								<jsp:useBean id="user" scope="request" class="beans.User"></jsp:useBean>
+								<form class="form-horizontal" role="form" method="post" action="SignupController">
 									<div class="form-group has-feedback">
 										<label for="inputEmail" class="col-sm-3 control-label">Email <span class="text-danger small">*</span></label>
 										<div class="col-sm-8">
-											<input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+											<input type="email" class="form-control" id="signupEmail" name="signupEmail" placeholder="Email" value="" required>
 											<i class="fa fa-envelope form-control-feedback"></i>
 										</div>
 									</div>
 									<div class="form-group has-feedback">
 										<label for="inputPassword" class="col-sm-3 control-label">Password <span class="text-danger small">*</span></label>
 										<div class="col-sm-8">
-											<input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+											<input type="password" class="form-control" id="password" name="password" placeholder="Password" value="" required>
+											<i class="fa fa-lock form-control-feedback"></i>
+										</div>
+									</div>
+									<div class="form-group has-feedback">
+										<label class="col-sm-3 control-label">Confirm your password <span class="text-danger small">*</span></label>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="repeatPassword" name="repeatPassword" placeholder="Password" value="" required>
 											<i class="fa fa-lock form-control-feedback"></i>
 										</div>
 									</div>
@@ -145,76 +145,50 @@
 											<button type="submit" class="btn btn-group btn-default btn-animated">Sign Up <i class="fa fa-check"></i></button>
 										</div>
 									</div>
+									<br><p class="message"><%= request.getAttribute("signupMessage") %></p>
+									<p class="message"><%= session.getAttribute("signupEmail") %></p>
 								</form>
 							</div>
-							
-							
-							<div class="form-block p-30 light-gray-bg border-clear">
-								<h2 class="title">Sign Up</h2>
-								<form class="form-horizontal" role="form">
-									<div class="form-group has-feedback">
-										<label for="inputName" class="col-sm-3 control-label">First Name <span class="text-danger small">*</span></label>
-										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputName" placeholder="Fisrt Name" required>
-											<i class="fa fa-pencil form-control-feedback"></i>
-										</div>
-									</div>
-									<div class="form-group has-feedback">
-										<label for="inputLastName" class="col-sm-3 control-label">Last Name <span class="text-danger small">*</span></label>
-										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputLastName" placeholder="Last Name" required>
-											<i class="fa fa-pencil form-control-feedback"></i>
-										</div>
-									</div>
-									<div class="form-group has-feedback">
-										<label for="inputUserName" class="col-sm-3 control-label">User Name <span class="text-danger small">*</span></label>
-										<div class="col-sm-8">
-											<input type="text" class="form-control" id="inputUserName" placeholder="User Name" required>
-											<i class="fa fa-user form-control-feedback"></i>
-										</div>
-									</div>
+
+			
+							<!-- log in start -->
+							<!-- ------------ -->
+							<div class="col-md-6">
+								<h2 class="title">Sign In</h2>
+								
+								<form class="form-horizontal" role="form" method="post" action="LoginController">
 									<div class="form-group has-feedback">
 										<label for="inputEmail" class="col-sm-3 control-label">Email <span class="text-danger small">*</span></label>
 										<div class="col-sm-8">
-											<input type="email" class="form-control" id="inputEmail" placeholder="Email" required>
+											<input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="Email" value="" required>
 											<i class="fa fa-envelope form-control-feedback"></i>
 										</div>
 									</div>
 									<div class="form-group has-feedback">
 										<label for="inputPassword" class="col-sm-3 control-label">Password <span class="text-danger small">*</span></label>
 										<div class="col-sm-8">
-											<input type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+											<input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Password"  value="" required>
 											<i class="fa fa-lock form-control-feedback"></i>
 										</div>
 									</div>
+
 									<div class="form-group">
 										<div class="col-sm-offset-3 col-sm-8">
-											<div class="checkbox">
-												<label>
-													<input type="checkbox" required> Accept our <a href="#">privacy policy</a> and <a href="#">customer agreement</a>
-												</label>
-											</div>
+											<button type="submit" class="btn btn-group btn-default btn-animated">Sign In <i class="fa fa-check"></i></button>
 										</div>
 									</div>
-									<div class="form-group">
-										<div class="col-sm-offset-3 col-sm-8">
-											<button type="submit" class="btn btn-group btn-default btn-animated">Sign Up <i class="fa fa-check"></i></button>
-										</div>
-									</div>
+									
+									<p class="login-error"><%= request.getAttribute("loginEmail") %></p>
+									<p class="login-error">Password:<%= request.getAttribute("loginPassword") %></p>
+									<p class="login-error"><%= request.getAttribute("message") %></p>
+									<p class="message"><%= session.getAttribute("loginEmail") %></p>
+									
 								</form>
 							</div>
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
+						
+							</div>
+							<!-- log in end -->
+
 						</div>
 						<!-- main end -->
 					</div>
@@ -422,7 +396,7 @@
 						<div class="subfooter-inner">
 							<div class="row">
 								<div class="col-md-12">
-									<p class="text-center">Copyright © 2016 The Project by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>. All Rights Reserved</p>
+									<p class="text-center">Copyright Â© 2016 The Project by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>. All Rights Reserved</p>
 								</div>
 							</div>
 						</div>

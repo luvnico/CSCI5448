@@ -70,18 +70,18 @@ public class Controller extends HttpServlet {
 		if (action == null) {
 			request.getRequestDispatcher("/index.jsp").forward(request, response);
 		}
-		else if(action.equals("login")) {
-			session.setAttribute("email", "");
-			session.setAttribute("password", "");
+		else if(action.equals("login2")) {
+			session.setAttribute("loginEmail", "");
+			request.setAttribute("loginPassword", "");
 			session.setAttribute("message", "");
-			request.getRequestDispatcher("/login.jsp").forward(request, response);
+			request.getRequestDispatcher("/signup.jsp").forward(request, response);
 		}
-		else if(action.equals("createaccount")) {
+		else if(action.equals("signup")) {
 			session.setAttribute("email", "");
 			session.setAttribute("password", "");
 			session.setAttribute("repeatpassword", "");
 			session.setAttribute("message", "");
-			request.getRequestDispatcher("/createaccount.jsp").forward(request, response);
+			request.getRequestDispatcher("/signup.jsp").forward(request, response);
 		}
 		
 		else if(action.equals("createposting")) {
@@ -131,14 +131,17 @@ public class Controller extends HttpServlet {
 
 		Account account = new Account(conn);
 		
-		if(action.equals("dologin")) {
-			String email = request.getParameter("email");
-			String password = request.getParameter("password");
-			session.setAttribute("loginEmail", email);
-			User user = new User(email, password);
+		if(action.equals("login2")) {
+			String email = request.getParameter("loginEmail");
+			String password = request.getParameter("loginPassword");
 			
-			request.setAttribute("email", email);
-			request.setAttribute("password", "");
+			session.setAttribute("loginEmail", email);
+			//session.setAttribute("loginPassword", password);
+			
+			request.setAttribute("loginEmail", email);
+			request.setAttribute("loginPassword", password);
+			
+			User user = new User(email, password);
 			
 			try {
 				if(account.login(email, password)) {
@@ -146,7 +149,7 @@ public class Controller extends HttpServlet {
 				}
 				else {
 					request.setAttribute("message", "email address or password not recognised");
-					request.getRequestDispatcher("/login.jsp").forward(request, response);
+					request.getRequestDispatcher("/signup.jsp").forward(request, response);
 				}
 			} catch (SQLException e) {
 
@@ -156,16 +159,16 @@ public class Controller extends HttpServlet {
 			}
 			
 		}
-		else if(action.equals("createaccount")) {
+		else if(action.equals("signup")) {
 			String email = request.getParameter("email");
 			String password = request.getParameter("password");
-			String repeatPassword = request.getParameter("repeatpassword");
+			String repeatPassword = request.getParameter("repeatPassword");
 			
 			//request.setAttribute("email", email);
-			session.setAttribute("createEmail", email);
+			session.setAttribute("signupEmail", email);
 			request.setAttribute("password", "");
-			request.setAttribute("repeatpassword", "");
-			request.setAttribute("message", "");
+			request.setAttribute("repeatPassword", "");
+			//request.setAttribute("message", "");
 			
 			if(!password.equals(repeatPassword)) {
 				// Passwords don't match.
@@ -185,12 +188,12 @@ public class Controller extends HttpServlet {
 						if(account.exists(email)) {
 							// This email address already exists in the user database.
 							request.setAttribute("message", "An account with this email address already exists");
-							request.getRequestDispatcher("/createaccount.jsp").forward(request, response);
+							request.getRequestDispatcher("/signup.jsp").forward(request, response);
 						}
 						else {
 							// We create create the account.
 							account.create(email, password);
-							request.getRequestDispatcher("/createsuccess.jsp").forward(request, response);
+							request.getRequestDispatcher("/home.jsp").forward(request, response);
 						}
 					} catch (SQLException e) {
 						
