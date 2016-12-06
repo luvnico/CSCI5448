@@ -1,6 +1,13 @@
+CREATE TABLE Authentication (
+	emailAddress VARCHAR(20) NOT NULL PRIMARY KEY,
+	password_hash CHAR(200) NOT NULL,
+	FOREIGN KEY (emailAddress) REFERENCES User(emailAddress) ON DELETE CASCADE
+)ENGINE=InnoDB;	
+
+
+
 CREATE TABLE User (
 	emailAddress VARCHAR(20) NOT NULL PRIMARY KEY,
-	password VARCHAR(20) NOT NULL,
 	loginStatus Bool
 )ENGINE=InnoDB;	
 
@@ -61,3 +68,8 @@ CREATE TABLE HousingOffered (
 	PRIMARY KEY (HOffered_id),
 	FOREIGN KEY (Posting_id) REFERENCES Posting(P_id) ON DELETE CASCADE
 )ENGINE=InnoDB;
+
+ALTER TABLE Posting ADD COLUMN contactEmail VARCHAR(20);
+ALTER TABLE Posting ADD COLUMN contactName VARCHAR(20);
+ALTER TABLE Posting ADD COLUMN status VARCHAR(10);
+

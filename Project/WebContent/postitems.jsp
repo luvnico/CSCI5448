@@ -191,9 +191,9 @@
 										<div class="row">
 											<div class="col-md-4">
 												<div class="form-group has-feedback">
-													<label class="control-label" for="email"><b>Size / Dimensions</b></label>
-													<input type="text" class="form-control" id="email" placeholder="Your email address">
-													<i class="fa fa-envelope-o form-control-feedback"></i>
+													<label class="control-label" for="size"><b>Size / Dimensions</b></label>
+													<input type="text" class="form-control" id="size" placeholder="Length x Width x Height">
+													<i class="fa form-control-feedback"></i>
 												</div>
 											</div>
 											<div class="col-md-2">
@@ -205,6 +205,8 @@
 														<option>Like new</option>
 														<option>excellent</option>
 														<option>good</option>
+														<option>fair</option>
+														<option>salvage</option>
 													</select>
 												</div>
 											</div>
