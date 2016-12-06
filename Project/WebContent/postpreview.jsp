@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
-<!DOCTYPE html>
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if gt IE 9]> <html lang="en" class="ie"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-	<!--<![endif]-->
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Posting Items</title>
 	<head>
 		<meta charset="utf-8">
-		<title>The Project | Page Sitemap</title>
+		<title>The Project | Posting Preview</title>
 		<meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
 		<meta name="author" content="htmlcoder.me">
 
@@ -55,132 +51,98 @@
 
 		<!-- Custom css --> 
 		<link href="css/custom.css" rel="stylesheet">
-	</head>
+</head>
 
-	<!-- body classes:  -->
-	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
-	<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
-	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
-	<!-- "gradient-background-header": applies gradient background to header -->
-	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
-	<body class="no-trans    ">
 
-		<!-- scrollToTop -->
-		<!-- ================ -->
-		<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+
+<!-- body classes:  -->
+<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
+<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
+<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
+<!-- "gradient-background-header": applies gradient background to header -->
+<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
+<body class="no-trans    ">
+
+	<!-- scrollToTop -->
+	<!-- ================ -->
+	<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+	
+	<!-- page wrapper start -->
+	<!-- ================ -->
+	<div class="page-wrapper">
+	
+		<!-- navigation bar start -->
+		<%@ include file ="navigation.jsp" %>
+		<!-- navigation bar end -->
 		
-		<!-- page wrapper start -->
+		<!-- breadcrumb start -->
 		<!-- ================ -->
-		<div class="page-wrapper">
-		
-			<!-- navigation bar start -->
-			<%@ include file ="navigation.jsp" %>
-			<!-- navigation bar end -->
-
-			<!-- breadcrumb start -->
-			<!-- ================ -->
-			<div class="breadcrumb-container">
-				<div class="container">
-					<ol class="breadcrumb">
-						<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
-					</ol>
-				</div>
+		<div class="breadcrumb-container">
+			<div class="container">
+				<ol class="breadcrumb">
+					<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+					<li class="active">Posting Preview</li>
+				</ol>
 			</div>
-			<!-- breadcrumb end -->
+		</div>
+		<!-- breadcrumb end -->
+		
+		<!-- main-container start -->
+		<!-- ================ -->
+		<section class="main-container">
 
-			<!-- main-container start -->
-			<!-- ================ -->
-			<section class="main-container">
+			<div class="container">
+				<div class="row">
 
-				<div class="container">
-					<div class="row">
+					<!-- main start -->
+					<!-- ================ -->
+					<div class="main col-md-12">
 
-						<!-- main start -->
+						<!-- page-title start -->
 						<!-- ================ -->
-						<div class="main col-md-12">
+						<h1 class="page-title">Posting Preview</h1>
+						<div class="separator-2"></div>
+						<!-- page-title end -->
+						
+						<div class="alert alert-icon alert-info" role="alert">
+							<form role="form" method="GET" action = "itemsWanted.jsp">
+								<i class="fa fa-info-circle"></i>
+								<h3>This is an unpublished draft.</h3>
+								<button class="btn btn-default" type="submit" name="edit" value="edit">edit</button>
+								&nbsp;
+								<button class="btn btn-default" type="submit" name="publish" value="publish">publish</button>
+							
+						</div>
 
-							<!-- page-title start -->
-							<!-- ================ -->
-							<h1 class="page-title">XXX's List - Boulder, CO</h1>
-							<div class="separator-2"></div>
-							<!-- page-title end -->
-							<div class="row">
-								<div class="col-md-6">
-									<h3>For Sale</h3>
+									
+						
+						<div class="row">
+							<div class="section light-gray-bg">
+								<div class="container">
+								<h3><%=request.getAttribute("title") %> </h3>
 									<div class="row">
-										<div class="col-md-6">
-											<ul class="list">
-												<li><a href="blog-large-image-right-sidebar.html"><i class="icon-right-open"></i>Antiques</a></li>
-												<li><a href="blog-large-image-left-sidebar.html"><i class="icon-right-open"></i>Appliances</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Arts & Crafts</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>ATV / UTV / SNO</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Auto Parts</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Baby & Kid</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Barter</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Beauty & Health</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Bikes</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Boats</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Books</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Business</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Cars & Trucks</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>CDs / DVD / VHS</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Cell Phones</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Clothes & Accessories</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Collectibles</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Computers</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Electronics</a></li>
-											</ul>
+										<div class="col-md-8">
+											<p><%=request.getAttribute("description") %></p>
 										</div>
-										<div class="col-md-6">
-											<ul class="list">
-												<li><a href="blog-medium-image-right-sidebar.html"><i class="icon-right-open"></i>Farm & Garden</a></li>
-												<li><a href="blog-medium-image-left-sidebar.html"><i class="icon-right-open"></i>Free</a></li>
-												<li><a href="blog-medium-image-no-sidebar.html"><i class="icon-right-open"></i>Furniture</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Garage Sale</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>General</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Heavy Equipment</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Household</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Jewelry</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Materials</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Motorcycles</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Music Instruments</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Photo & Video</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>RVs & Camp</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Sporting</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Tickets</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Tools</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Toys & Games</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Trailers</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Video Gaming</a></li>
-												<li><a href="itemWantedLists.jsp"><i class="icon-right-open"></i>Wanted</a></li>
-											</ul>
+										<div class="col-md-4">
+											condition: xxxx
 										</div>
 									</div>
-								</div>
-								<div class="col-md-6">
-									<h3>Housing</h3>
-									<ul class="list">	
-										<li><a href="index.html"><i class="icon-right-open"></i>Apts / Housing</a></li>
-										<li><a href="index-corporate-1.html"><i class="icon-right-open"></i>Housing Swap</a></li>
-										<li><a href="index-corporate-2.html"><i class="icon-right-open"></i>Housing Wanted</a></li>
-										<li><a href="index-corporate-3.html"><i class="icon-right-open"></i>Office / Commercial</a></li>
-										<li><a href="index-shop.html"><i class="icon-right-open"></i>Parking / Storage</a></li>
-										<li><a href="index-shop-2.html"><i class="icon-right-open"></i>Real Estate for Sale</a></li>
-										<li><a href="index-portfolio.html"><i class="icon-right-open"></i>Rooms / Shared</a></li>
-										<li><a href="index-medical.html"><i class="icon-right-open"></i>Rooms Wanted</a></li>
-										<li><a href="index-restaurant.html"><i class="icon-right-open"></i>Sublets / Temporary</a></li>
-										<li><a href="index-wedding.html"><i class="icon-right-open"></i>Vacation Rentals</a></li>
-									</ul>
+									<hr>
+									
 								</div>
 							</div>
 						</div>
-						<!-- main end -->
-
+						</form>
 					</div>
-				</div>
-			</section>
-			<!-- main-container end -->
 			
+					<!-- main end -->
+					
+				</div>
+			</div>
+		</section>
+		<!-- main-container end -->
+		
 			<!-- footer top start -->
 			<!-- ================ -->
 			<div class="dark-bg  default-hovered footer-top animated-text">
@@ -206,7 +168,7 @@
 
 			<!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
 			<!-- ================ -->
-			<footer id="footer" class="clearfix ">
+			<footer id="footer" class="clearfix">
 
 				<!-- .footer start -->
 				<!-- ================ -->
@@ -421,6 +383,6 @@
 		<script type="text/javascript" src="js/template.js"></script>
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
-
-	</body>
+		
+</body>
 </html>

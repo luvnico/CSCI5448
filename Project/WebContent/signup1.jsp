@@ -1,7 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
 <!DOCTYPE html>
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if gt IE 9]> <html lang="en" class="ie"> <![endif]-->
@@ -11,7 +9,7 @@
 
 	<head>
 		<meta charset="utf-8">
-		<title>The Project | Page Sitemap</title>
+		<title>The Project | Page Sign Up</title>
 		<meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
 		<meta name="author" content="htmlcoder.me">
 
@@ -19,7 +17,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 		<!-- Favicon -->
-		<link rel="shortcut icon" href="images/favicon.ico">
+		<link rel="shortcut icon" href="${pageContext.request.contextPath}/images/favicon.ico">
 
 		<!-- Web Fonts -->
 		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
@@ -28,33 +26,36 @@
 		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 
 		<!-- Bootstrap core CSS -->
-		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/bootstrap/css/bootstrap.css" rel="stylesheet">
 
 		<!-- Font Awesome CSS -->
-		<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
 
 		<!-- Fontello CSS -->
-		<link href="fonts/fontello/css/fontello.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/fonts/fontello/css/fontello.css" rel="stylesheet">
 
 		<!-- Plugins -->
-		<link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
-		<link href="css/animations.css" rel="stylesheet">
-		<link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
-		<link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
-		<link href="plugins/hover/hover-min.css" rel="stylesheet">		
+		<link href="${pageContext.request.contextPath}/plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/css/animations.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/plugins/hover/hover-min.css" rel="stylesheet">		
 		
 		<!-- The Project's core CSS file -->
-		<link href="css/style.css" rel="stylesheet" >
+		<link href="${pageContext.request.contextPath}/css/style.css" rel="stylesheet" >
 		<!-- The Project's Typography CSS file, includes used fonts -->
 		<!-- Used font for body: Roboto -->
 		<!-- Used font for headings: Raleway -->
-		<link href="css/typography-default.css" rel="stylesheet" >
+		<link href="${pageContext.request.contextPath}/css/typography-default.css" rel="stylesheet" >
 		<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
-		<link href="css/skins/light_blue.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/css/skins/light_blue.css" rel="stylesheet">
 		
 
 		<!-- Custom css --> 
-		<link href="css/custom.css" rel="stylesheet">
+		<link href="${pageContext.request.contextPath}/css/custom.css" rel="stylesheet">
+		
+		<!-- Jquery files -->
+		<script type="/text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 	</head>
 
 	<!-- body classes:  -->
@@ -76,13 +77,14 @@
 			<!-- navigation bar start -->
 			<%@ include file ="navigation.jsp" %>
 			<!-- navigation bar end -->
-
+			
 			<!-- breadcrumb start -->
 			<!-- ================ -->
 			<div class="breadcrumb-container">
 				<div class="container">
 					<ol class="breadcrumb">
-						<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+						<li><i class="fa fa-home pr-10"></i><a href="jsp">Home</a></li>
+						<li class="active">Page Sign Up</li>
 					</ol>
 				</div>
 			</div>
@@ -90,95 +92,115 @@
 
 			<!-- main-container start -->
 			<!-- ================ -->
-			<section class="main-container">
-
+			<div class="main-container dark-translucent-bg" style="background-image:url('images/background-img-6.jpg');">
 				<div class="container">
 					<div class="row">
-
 						<!-- main start -->
 						<!-- ================ -->
-						<div class="main col-md-12">
-
-							<!-- page-title start -->
-							<!-- ================ -->
-							<h1 class="page-title">XXX's List - Boulder, CO</h1>
-							<div class="separator-2"></div>
-							<!-- page-title end -->
-							<div class="row">
-								<div class="col-md-6">
-									<h3>For Sale</h3>
-									<div class="row">
-										<div class="col-md-6">
-											<ul class="list">
-												<li><a href="blog-large-image-right-sidebar.html"><i class="icon-right-open"></i>Antiques</a></li>
-												<li><a href="blog-large-image-left-sidebar.html"><i class="icon-right-open"></i>Appliances</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Arts & Crafts</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>ATV / UTV / SNO</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Auto Parts</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Baby & Kid</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Barter</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Beauty & Health</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Bikes</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Boats</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Books</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Business</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Cars & Trucks</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>CDs / DVD / VHS</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Cell Phones</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Clothes & Accessories</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Collectibles</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Computers</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Electronics</a></li>
-											</ul>
-										</div>
-										<div class="col-md-6">
-											<ul class="list">
-												<li><a href="blog-medium-image-right-sidebar.html"><i class="icon-right-open"></i>Farm & Garden</a></li>
-												<li><a href="blog-medium-image-left-sidebar.html"><i class="icon-right-open"></i>Free</a></li>
-												<li><a href="blog-medium-image-no-sidebar.html"><i class="icon-right-open"></i>Furniture</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Garage Sale</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>General</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Heavy Equipment</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Household</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Jewelry</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Materials</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Motorcycles</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Music Instruments</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Photo & Video</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>RVs & Camp</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Sporting</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Tickets</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Tools</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Toys & Games</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Trailers</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Video Gaming</a></li>
-												<li><a href="itemWantedLists.jsp"><i class="icon-right-open"></i>Wanted</a></li>
-											</ul>
+						<div class="main object-non-visible" data-animation-effect="fadeInUpSmall" data-effect-delay="100">
+							<div id="sign-up-box" class="form-block center-block p-30 light-gray-bg border-clear" style="display:none">
+								<h2 class="title" style="display: inline">Sign Up</h2>
+								<a id="change2signin" style="float:right; cursor:pointer">Already have an account? Sign in here</a>
+	
+								<form class="form-horizontal" role="form" method="post" action="<%= response.encodeUrl(request.getContextPath() + "/Controller?action=signup") %>">
+									<input type="hidden" name="action" value="signup" />	
+									<div class="form-group has-feedback">
+										<label for="inputEmail" class="col-sm-3 control-label">Email <span class="text-danger small">*</span></label>
+										<div class="col-sm-8">
+											<input type="email" class="form-control" id="inputEmail" name="email" value="" placeholder="Email" required>
+											<i class="fa fa-envelope form-control-feedback"></i>
 										</div>
 									</div>
-								</div>
-								<div class="col-md-6">
-									<h3>Housing</h3>
-									<ul class="list">	
-										<li><a href="index.html"><i class="icon-right-open"></i>Apts / Housing</a></li>
-										<li><a href="index-corporate-1.html"><i class="icon-right-open"></i>Housing Swap</a></li>
-										<li><a href="index-corporate-2.html"><i class="icon-right-open"></i>Housing Wanted</a></li>
-										<li><a href="index-corporate-3.html"><i class="icon-right-open"></i>Office / Commercial</a></li>
-										<li><a href="index-shop.html"><i class="icon-right-open"></i>Parking / Storage</a></li>
-										<li><a href="index-shop-2.html"><i class="icon-right-open"></i>Real Estate for Sale</a></li>
-										<li><a href="index-portfolio.html"><i class="icon-right-open"></i>Rooms / Shared</a></li>
-										<li><a href="index-medical.html"><i class="icon-right-open"></i>Rooms Wanted</a></li>
-										<li><a href="index-restaurant.html"><i class="icon-right-open"></i>Sublets / Temporary</a></li>
-										<li><a href="index-wedding.html"><i class="icon-right-open"></i>Vacation Rentals</a></li>
-									</ul>
-								</div>
+									<div class="form-group has-feedback">
+										<label for="inputPassword" class="col-sm-3 control-label">Password <span class="text-danger small">*</span></label>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="inputPassword" name="password" value="" placeholder="Password" required>
+											<i class="fa fa-lock form-control-feedback"></i>
+										</div>
+									</div>
+									<div class="form-group has-feedback">
+										<label class="col-sm-3 control-label">Confirm your password <span class="text-danger small">*</span></label>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="inputPassword" name="repeatpassword" value="" placeholder="Password" required>
+											<i class="fa fa-lock form-control-feedback"></i>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-3 col-sm-8">
+											<div class="checkbox">
+												<label>
+													<input type="checkbox" required> Accept our <a href="#">privacy policy</a> and <a href="#">customer agreement</a>
+												</label>
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-3 col-sm-8">
+											<button type="submit" class="btn btn-group btn-default btn-animated">Sign Up <i class="fa fa-check"></i></button>
+										</div>
+									</div>
+									
+									<p class="message"><%= request.getAttribute("message") %></p>
+									<p class="message"><%= session.getAttribute("createEmail") %></p>
+									
+									
+								</form>
+
 							</div>
+
+							<!-- log in start -->
+							<!-- ------------ -->
+							<div id="sign-in-box" class="form-block center-block p-30 light-gray-bg border-clear">
+								<h2 class="title" style="display:inline">Sign In</h2>
+								<a id="change2signup" style="float:right; cursor:pointer">Register a new account</a>
+								<jsp:useBean id="user" scope="request" class="beans.User"></jsp:useBean>
+								<form class="form-horizontal" role="form" method="post" action="LoginController">
+								<input type="hidden" name="action" value="login2" />
+									<div class="form-group has-feedback">
+										<label for="loginEmail" class="col-sm-3 control-label">Email <span class="text-danger small">*</span></label>
+										<div class="col-sm-8">
+											<input type="email" class="form-control" id="loginEmail" name="loginEmail" placeholder="Email" value="<%= request.getAttribute("loginEmail") %>" required>
+											<i class="fa fa-envelope form-control-feedback"></i>
+										</div>
+									</div>
+									<div class="form-group has-feedback">
+										<label for="loginPassword" class="col-sm-3 control-label">Password <span class="text-danger small">*</span></label>
+										<div class="col-sm-8">
+											<input type="password" class="form-control" id="loginPassword" name="loginPassword" placeholder="Password"  value="<%= request.getAttribute("loginPassword") %>" required>
+											<i class="fa fa-lock form-control-feedback"></i>
+										</div>
+									</div>
+
+									<div class="form-group">
+										<div class="col-sm-offset-3 col-sm-8">
+											<button type="submit" class="btn btn-group btn-default btn-animated">Sign In <i class="fa fa-check"></i></button>
+										</div>
+									</div>
+									
+									<p class="login-error"><%= request.getAttribute("loginEmail") %></p>
+									<p class="login-error">Password:<%= request.getAttribute("loginPassword") %></p>
+									<p class="login-error"><%= request.getAttribute("message") %></p>
+									<p class="message"><%= session.getAttribute("loginEmail") %></p>
+								</form>
+							</div>
+							
+							<!-- log in end -->
+							<script>
+								$("#change2signin").click(function(){
+									$("#sign-up-box").hide();
+									$("#sign-in-box").show();
+								});
+								$("#change2signup").click(function(){
+									$("#sign-in-box").hide();
+									$("#sign-up-box").show();
+								});
+							</script>
+
 						</div>
 						<!-- main end -->
-
 					</div>
 				</div>
-			</section>
+			</div>
 			<!-- main-container end -->
 			
 			<!-- footer top start -->
@@ -216,7 +238,7 @@
 							<div class="row">
 								<div class="col-md-3">
 									<div class="footer-content">
-										<div class="logo-footer"><img id="logo-footer" src="images/logo_light_blue.png" alt=""></div>
+										<div class="logo-footer"><img id="logo-footer" src="${pageContext.request.contextPath}/images/logo_light_blue.png" alt=""></div>
 										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat... <a href="page-about.html">Learn More<i class="fa fa-long-arrow-right pl-5"></i></a></p>
 										<div class="separator-2"></div>
 										<nav>
@@ -236,7 +258,7 @@
 										<div class="media margin-clear">
 											<div class="media-left">
 												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-1.jpg" alt="blog-thumb">
+													<img class="media-object" src="${pageContext.request.contextPath}/images/blog-thumb-1.jpg" alt="blog-thumb">
 													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
 												</div>
 											</div>
@@ -249,7 +271,7 @@
 										<div class="media margin-clear">
 											<div class="media-left">
 												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-2.jpg" alt="blog-thumb">
+													<img class="media-object" src="${pageContext.request.contextPath}/images/blog-thumb-2.jpg" alt="blog-thumb">
 													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
 												</div>
 											</div>
@@ -262,7 +284,7 @@
 										<div class="media margin-clear">
 											<div class="media-left">
 												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-3.jpg" alt="blog-thumb">
+													<img class="media-object" src="${pageContext.request.contextPath}/images/blog-thumb-3.jpg" alt="blog-thumb">
 													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
 												</div>
 											</div>
@@ -275,7 +297,7 @@
 										<div class="media margin-clear">
 											<div class="media-left">
 												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-4.jpg" alt="blog-thumb">
+													<img class="media-object" src="${pageContext.request.contextPath}/images/blog-thumb-4.jpg" alt="blog-thumb">
 													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
 												</div>
 											</div>
@@ -296,7 +318,7 @@
 										<div class="row grid-space-10">
 											<div class="col-xs-4 col-md-6">
 												<div class="overlay-container mb-10">
-													<img src="images/gallery-1.jpg" alt="">
+													<img src="${pageContext.request.contextPath}/images/gallery-1.jpg" alt="">
 													<a href="portfolio-item.html" class="overlay-link small">
 														<i class="fa fa-link"></i>
 													</a>
@@ -304,7 +326,7 @@
 											</div>
 											<div class="col-xs-4 col-md-6">
 												<div class="overlay-container mb-10">
-													<img src="images/gallery-2.jpg" alt="">
+													<img src="${pageContext.request.contextPath}/images/gallery-2.jpg" alt="">
 													<a href="portfolio-item.html" class="overlay-link small">
 														<i class="fa fa-link"></i>
 													</a>
@@ -312,7 +334,7 @@
 											</div>
 											<div class="col-xs-4 col-md-6">
 												<div class="overlay-container mb-10">
-													<img src="images/gallery-3.jpg" alt="">
+													<img src="${pageContext.request.contextPath}/images/gallery-3.jpg" alt="">
 													<a href="portfolio-item.html" class="overlay-link small">
 														<i class="fa fa-link"></i>
 													</a>
@@ -320,7 +342,7 @@
 											</div>
 											<div class="col-xs-4 col-md-6">
 												<div class="overlay-container mb-10">
-													<img src="images/gallery-4.jpg" alt="">
+													<img src="${pageContext.request.contextPath}/images/gallery-4.jpg" alt="">
 													<a href="portfolio-item.html" class="overlay-link small">
 														<i class="fa fa-link"></i>
 													</a>
@@ -328,7 +350,7 @@
 											</div>
 											<div class="col-xs-4 col-md-6">
 												<div class="overlay-container mb-10">
-													<img src="images/gallery-5.jpg" alt="">
+													<img src="${pageContext.request.contextPath}/images/gallery-5.jpg" alt="">
 													<a href="portfolio-item.html" class="overlay-link small">
 														<i class="fa fa-link"></i>
 													</a>
@@ -336,7 +358,7 @@
 											</div>
 											<div class="col-xs-4 col-md-6">
 												<div class="overlay-container mb-10">
-													<img src="images/gallery-6.jpg" alt="">
+													<img src="${pageContext.request.contextPath}/images/gallery-6.jpg" alt="">
 													<a href="portfolio-item.html" class="overlay-link small">
 														<i class="fa fa-link"></i>
 													</a>
@@ -398,29 +420,29 @@
 		<!-- JavaScript files placed at the end of the document so the pages load faster -->
 		<!-- ================================================== -->
 		<!-- Jquery and Bootstap core js files -->
-		<script type="text/javascript" src="plugins/jquery.min.js"></script>
-		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/jquery.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/bootstrap/js/bootstrap.min.js"></script>
 		<!-- Modernizr javascript -->
-		<script type="text/javascript" src="plugins/modernizr.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/modernizr.js"></script>
 		<!-- Magnific Popup javascript -->
-		<script type="text/javascript" src="plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/magnific-popup/jquery.magnific-popup.min.js"></script>
 		<!-- Appear javascript -->
-		<script type="text/javascript" src="plugins/waypoints/jquery.waypoints.min.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/waypoints/jquery.waypoints.min.js"></script>
 		<!-- Count To javascript -->
-		<script type="text/javascript" src="plugins/jquery.countTo.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/jquery.countTo.js"></script>
 		<!-- Parallax javascript -->
-		<script src="plugins/jquery.parallax-1.1.3.js"></script>
+		<script src="${pageContext.request.contextPath}/plugins/jquery.parallax-1.1.3.js"></script>
 		<!-- Contact form -->
-		<script src="plugins/jquery.validate.js"></script>
+		<script src="${pageContext.request.contextPath}/plugins/jquery.validate.js"></script>
 		<!-- Owl carousel javascript -->
-		<script type="text/javascript" src="plugins/owl-carousel/owl.carousel.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/owl-carousel/owl.carousel.js"></script>
 		<!-- SmoothScroll javascript -->
-		<script type="text/javascript" src="plugins/jquery.browser.js"></script>
-		<script type="text/javascript" src="plugins/SmoothScroll.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/jquery.browser.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/plugins/SmoothScroll.js"></script>
 		<!-- Initialization of Plugins -->
-		<script type="text/javascript" src="js/template.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
 		<!-- Custom Scripts -->
-		<script type="text/javascript" src="js/custom.js"></script>
+		<script type="text/javascript" src="${pageContext.request.contextPath}/js/custom.js"></script>
 
 	</body>
 </html>

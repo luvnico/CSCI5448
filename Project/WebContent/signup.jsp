@@ -146,7 +146,7 @@
 										</div>
 									</div>
 									<br><p class="message"><%= request.getAttribute("signupMessage") %></p>
-									<p class="message"><%= session.getAttribute("signupEmail") %></p>
+
 								</form>
 							</div>
 
@@ -177,12 +177,7 @@
 											<button type="submit" class="btn btn-group btn-default btn-animated">Sign In <i class="fa fa-check"></i></button>
 										</div>
 									</div>
-									
-									<p class="login-error"><%= request.getAttribute("loginEmail") %></p>
-									<p class="login-error">Password:<%= request.getAttribute("loginPassword") %></p>
-									<p class="login-error"><%= request.getAttribute("message") %></p>
-									<p class="message"><%= session.getAttribute("loginEmail") %></p>
-									
+
 								</form>
 							</div>
 						

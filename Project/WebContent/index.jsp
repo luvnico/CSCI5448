@@ -7,9 +7,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p><a href="<%= response.encodeUrl(request.getContextPath() + "/Controller?action=login") %>">Click here to login</a></p>
-<p><a href="<%= response.encodeUrl(request.getContextPath() + "/Controller?action=createaccount") %>">Click here to create a new account</a></p>
+<p><a href="<%= response.encodeUrl(request.getContextPath() + "/Controller?action=login2") %>">Click here to login</a></p>
+<p><a href="<%= response.encodeUrl(request.getContextPath() + "/Controller?action=signup") %>">Click here to create a new account</a></p>
 <p><a href="<%= response.encodeUrl(request.getContextPath() + "/Controller?action=createposting") %>">Click here to create a new posting</a></p>
+
+
+<p><a href="/project/signup" >click</a></p>
 
 </body>
 </html>

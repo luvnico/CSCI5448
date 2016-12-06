@@ -1,7 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-
+<%@page import="database.Account"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.sql.DataSource"%>
+<%@page import="java.util.ArrayList" %>
+<%@page import="javax.servlet.http.HttpServletRequest"%>
+<%@page import="java.io.PrintWriter"%>
 <!DOCTYPE html>
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if gt IE 9]> <html lang="en" class="ie"> <![endif]-->
@@ -104,6 +109,7 @@
 				<div class="container">
 					<div class="row">
 
+
 						<!-- main start -->
 						<!-- ================ -->
 						<div class="main col-md-12">
@@ -129,32 +135,85 @@
 									<div class="tab-pane active" id="h3tab1">
 										<div class="row">
 											<div class="col-md-12">
+											<p class="message"></p>
+											<%/*
+											ArrayList<String> result = new ArrayList<String>();	
+											request.setAttribute("result", request.getAttribute("postings"));
+											String[] row = new String[3];
+											//int m=0;
+											for (int i=0;i<(Integer)request.getAttribute("count");i++){
+												row[i]=result.get(i);	
+												//m++;
+											}*/
+											
+											%>
 											<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 										        <thead>
 										            <tr>
 										                <th>Status</th>
-										                <th>Manage</th>
 										                <th>Posting Title</th>
 										                <th>Area & Category</th>
+										                <th>Manage</th> 
 										                <th>Posted Date</th>
 										            </tr>
 										        </thead>
 										        <tbody>
-										            <tr>
-										                <td>Tiger Nixon</td>
-										                <td>System Architect</td>
-										                <td>Edinburgh</td>
-										                <td>61</td>
-										                <td>2011/04/25</td>
-										            </tr>
-										            <
-										            <tr>
-										                <td>Bradley Greer</td>
-										                <td>Software Engineer</td>
-										                <td>London</td>
-										                <td>41</td>
-										                <td>2012/10/13</td>
-										            </tr>
+										        
+<% 
+
+
+    String connectionURL = "jdbc:mysql://localhost:3306/CraigsList";
+    Connection connection = null; 
+    Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+    connection = DriverManager.getConnection(connectionURL, "root", "root");
+    ArrayList titleResult = new ArrayList();;
+    int count=0;
+    if(!connection.isClosed())
+         out.println("Successfully connected to " + "MySQL server using TCP/IP...");
+    
+    String email = session.getAttribute("loginEmail")==null?(String)session.getAttribute("signupEmail"):(String)session.getAttribute("loginEmail");
+    Statement statement = connection.createStatement();
+
+    	
+	ResultSet resultset = statement.executeQuery("select status, title, type from Posting where User_Email = '" + email + "'"); 
+
+	if(!resultset.next()) {
+		out.println("You haven't post yet. ");
+	} else {
+		
+		while (resultset.next()) {
+	        titleResult.add(resultset.getString(1));
+	        titleResult.add(resultset.getString(2));
+	        titleResult.add(resultset.getString(3));
+	        count++;
+        
+		}
+			//request.setAttribute("postings", titleResult);
+			//request.setAttribute("count", i);
+			
+	} 
+    	connection.close();
+ 
+			
+										        //PrintWriter out1 = response.getWriter();
+										     int j; 
+										     int i;
+										      for(i=0;i<count;i++) {
+										   // while(titleResult!=null){
+										    	  out.println("<tr>");
+										          for (j=3*i;j<3*(i+1);j++){ 
+										        	
+										            out.println("<td>");
+										            out.println(titleResult.get(j));
+										            //titleResult.remove(j);
+										            out.println("</td>");  
+										            
+										          }
+										          out.println("</tr>");
+										    //}     
+										      }
+%>   
+											
 										        </tbody>
 										    </table>
 											</div>

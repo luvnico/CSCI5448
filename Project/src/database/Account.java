@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
 import com.howtodoinjava.hashing.password.demo.bcrypt.BCrypt;
 
 public class Account {
@@ -82,9 +84,11 @@ public class Account {
 	}
 	
 	
-	public void post(String email, String type, String title, String description) throws SQLException {
+	
+	public void post(String email, String title, String type, String description, String contactEmail, String contactName, String status) throws SQLException {
 
-		String sql = "INSERT INTO Posting(User_Email, title, type, description) VALUES(?,?,?,?)";
+		
+		String sql = "INSERT INTO Posting(User_Email, title, type, description,contactEmail, contactName, status) VALUES(?,?,?,?,?,?,?)";
 
 		PreparedStatement stmt = conn.prepareStatement(sql);
 
@@ -92,9 +96,48 @@ public class Account {
 		stmt.setString(2, title);
 		stmt.setString(3, type);
 		stmt.setString(4, description);
+		stmt.setString(5, contactEmail);
+		stmt.setString(6, contactName);
+		stmt.setString(7, status);
 		
 
 		stmt.executeUpdate();
 		stmt.close();
+	}
+	
+	public ArrayList<String> selectPosting() throws SQLException{
+		
+		PreparedStatement stmt = null;
+		ArrayList result = new ArrayList<String>();
+		String sql = "SELECT status, title, type FROM Posting WHERE User_Email = ?";
+		try {
+			stmt = conn.prepareStatement(sql);
+			ResultSet rs = stmt.executeQuery();
+		
+			while (rs.next()) {
+				
+				String status = rs.getString("status");
+				String title = rs.getString("title");
+				String type = rs.getString("type");
+				result.add(status);
+				result.add(title);
+				result.add(type);
+
+
+			}
+
+		} catch (SQLException e) {
+
+			System.out.println(e.getMessage());
+
+		} finally {
+
+			if (stmt != null) {
+				stmt.close();
+			}
+
+		}
+		return result;
+
 	}
 }

@@ -1,10 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@page import="database.Account"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="javax.sql.DataSource"%>
+<%@page import="java.util.ArrayList" %>
+<%@page import="javax.servlet.http.HttpServletRequest"%>
+<%@page import="java.io.PrintWriter"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Posting Items</title>
+<title>Item Wanted</title>
 	<head>
 		<meta charset="utf-8">
 		<title>The Project | Page Sitemap</title>
@@ -81,7 +87,7 @@
 			<div class="container">
 				<ol class="breadcrumb">
 					<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
-					<li class="active">Post Items Wanted</li>
+					<li class="active">Items Wanted</li>
 				</ol>
 			</div>
 		</div>
@@ -100,119 +106,40 @@
 
 						<!-- page-title start -->
 						<!-- ================ -->
-						<h1 class="page-title">Post Items Wanted</h1>
+						<h1 class="page-title">Items Wanted</h1>
 						<div class="separator-2"></div>
 						<!-- page-title end -->
-						
-						<div class="row">
+					
 							<div class="section light-gray-bg">
 								<div class="container">
-									<h3>Contact Info</h3>
-									<form role="form">
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group has-feedback">
-													<label class="control-label" for="email"><b>Email</b></label>
-													<input type="text" class="form-control" id="email" placeholder="Your email address">
-													<i class="fa fa-envelope-o form-control-feedback"></i>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<b>User can also contact me:</b>
-												<div class="checkbox">
-													<label>
-														<input type="checkbox" value="">
-														by phone
-													</label>
-													&nbsp;&nbsp;
-													<label>
-														<input type="checkbox" value="">
-														by text
-													</label>
-												</div>
-											</div>
-										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group has-feedback">
-													<label class="control-label" for="email2"><b>Confirm email</b></label>
-													<input type="text" class="form-control" id="email2" placeholder="Type email address again">
-													<i class="fa fa-envelope-o form-control-feedback"></i>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group has-feedback">
-													<label class="control-label" for="phone"><b>Phone number</b></label>
-													<input type="text" class="form-control" id="phone">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group has-feedback">
-													<label class="control-label" for="name"><b>Contact name</b></label>
-													<input type="text" class="form-control" id="name">
-												</div>
-											</div>
-										</div>
-							
-									
-								</div>
-							</div>
-						</div>
-						<br>
-						<div class="row">
-							<div class="row">
-								<div class="form-group has-success col-md-6">
-									<label class="control-label" for="title">Posting title</label>
-									<input type="text" class="form-control" id="title">
-								</div>
-								<div class="form-group col-md-3">
-									<label class="control-label" for="price">Price</label>
-									<input type="text" class="form-control" id="price">
-								</div>
-								<div class="form-group col-md-3">
-									<label class="control-label" for="postcode">Postal code</label>
-									<input type="text" class="form-control" id="postcode">
-								</div>
-							</div>
-							<div class="row">
-								<div class="form-group has-success col-md-12">
-								<label class="control-label" for="postingbody">Posting body</label>
-								<textarea class="form-control" tabindex="1" rows="10" id="postingbody" name="postingbody">
-								</textarea>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="section light-gray-bg">
-								<div class="container">
-									<h3>Posting details</h3>
-									
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group has-feedback">
-													<label class="control-label" for="size"><b>Size / Dimensions</b></label>
-													<input type="text" class="form-control" id="size" placeholder="Length x Width x Height">
-													<i class="fa form-control-feedback"></i>
-												</div>
-											</div>
-											<div class="col-md-2">
-												<div class="form-group has-feedback">
-													<label class="control-label" for="condition"><b>Condition</b></label>
-													<select class="form-control" id="condition">
-														<option>-</option>
-														<option>new</option>
-														<option>Like new</option>
-														<option>excellent</option>
-														<option>good</option>
-														<option>fair</option>
-														<option>salvage</option>
-													</select>
-												</div>
-											</div>
-										</div>
-										<button type="submit" class="btn btn-default" style="float:right">Continue</button>
-									</form>
+<% 
+
+
+    String connectionURL = "jdbc:mysql://localhost:3306/CraigsList";
+    Connection connection = null; 
+    Class.forName("com.mysql.jdbc.Driver").newInstance(); 
+    connection = DriverManager.getConnection(connectionURL, "root", "root");
+    ArrayList titleResult = new ArrayList();
+    int count=0;
+    //if(!connection.isClosed())
+         //out.println("Successfully connected to " + "MySQL server using TCP/IP...");
+    
+    
+    Statement statement = connection.createStatement();
+ 	
+	ResultSet resultset = statement.executeQuery("select title, description, contactEmail from Posting where type = 'itemWanted'"); 
+	ResultSetMetaData rsmd = resultset.getMetaData();
+	int columnsNumber = rsmd.getColumnCount();	
+	while (resultset.next()) {
+		for (int i = 1; i <= columnsNumber; i++) {
+	           if (i > 1) System.out.print(",  ");
+	           String columnValue = resultset.getString(i);
+	           out.println(columnValue);
+	       }
+	       out.println("<br>");	
+	} 
+    	connection.close();
+%> 
 									
 								</div>
 							</div>

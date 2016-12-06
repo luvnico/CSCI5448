@@ -1,14 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
-<!DOCTYPE html>
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if gt IE 9]> <html lang="en" class="ie"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-	<!--<![endif]-->
-
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Item Wanted</title>
 	<head>
 		<meta charset="utf-8">
 		<title>The Project | Page Sitemap</title>
@@ -55,132 +51,184 @@
 
 		<!-- Custom css --> 
 		<link href="css/custom.css" rel="stylesheet">
-	</head>
+</head>
 
-	<!-- body classes:  -->
-	<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
-	<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
-	<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
-	<!-- "gradient-background-header": applies gradient background to header -->
-	<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
-	<body class="no-trans    ">
 
-		<!-- scrollToTop -->
-		<!-- ================ -->
-		<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+
+<!-- body classes:  -->
+<!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
+<!-- "pattern-1 ... pattern-9": background patterns for boxed layout mode e.g. <body class="boxed pattern-1"> -->
+<!-- "transparent-header": makes the header transparent and pulls the banner to top -->
+<!-- "gradient-background-header": applies gradient background to header -->
+<!-- "page-loader-1 ... page-loader-6": add a page loader to the page (more info @components-page-loaders.html) -->
+<body class="no-trans    ">
+
+	<!-- scrollToTop -->
+	<!-- ================ -->
+	<div class="scrollToTop circle"><i class="icon-up-open-big"></i></div>
+	
+	<!-- page wrapper start -->
+	<!-- ================ -->
+	<div class="page-wrapper">
+	
+		<!-- navigation bar start -->
+		<%@ include file ="navigation.jsp" %>
+		<!-- navigation bar end -->
 		
-		<!-- page wrapper start -->
+		<!-- breadcrumb start -->
 		<!-- ================ -->
-		<div class="page-wrapper">
-		
-			<!-- navigation bar start -->
-			<%@ include file ="navigation.jsp" %>
-			<!-- navigation bar end -->
-
-			<!-- breadcrumb start -->
-			<!-- ================ -->
-			<div class="breadcrumb-container">
-				<div class="container">
-					<ol class="breadcrumb">
-						<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
-					</ol>
-				</div>
+		<div class="breadcrumb-container">
+			<div class="container">
+				<ol class="breadcrumb">
+					<li><i class="fa fa-home pr-10"></i><a href="index.html">Home</a></li>
+					<li class="active">Items Wanted</li>
+				</ol>
 			</div>
-			<!-- breadcrumb end -->
+		</div>
+		<!-- breadcrumb end -->
+		
+		<!-- main-container start -->
+		<!-- ================ -->
+		<section class="main-container">
 
-			<!-- main-container start -->
-			<!-- ================ -->
-			<section class="main-container">
+			<div class="container">
+				<div class="row">
 
-				<div class="container">
-					<div class="row">
+					<!-- main start -->
+					<!-- ================ -->
+					<div class="main col-md-12">
 
-						<!-- main start -->
+						<!-- page-title start -->
 						<!-- ================ -->
-						<div class="main col-md-12">
-
-							<!-- page-title start -->
-							<!-- ================ -->
-							<h1 class="page-title">XXX's List - Boulder, CO</h1>
-							<div class="separator-2"></div>
-							<!-- page-title end -->
-							<div class="row">
-								<div class="col-md-6">
-									<h3>For Sale</h3>
-									<div class="row">
-										<div class="col-md-6">
-											<ul class="list">
-												<li><a href="blog-large-image-right-sidebar.html"><i class="icon-right-open"></i>Antiques</a></li>
-												<li><a href="blog-large-image-left-sidebar.html"><i class="icon-right-open"></i>Appliances</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Arts & Crafts</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>ATV / UTV / SNO</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Auto Parts</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Baby & Kid</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Barter</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Beauty & Health</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Bikes</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Boats</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Books</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Business</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Cars & Trucks</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>CDs / DVD / VHS</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Cell Phones</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Clothes & Accessories</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Collectibles</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Computers</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Electronics</a></li>
-											</ul>
+						<h1 class="page-title">Items Wanted</h1>
+						<div class="separator-2"></div>
+						<!-- page-title end -->
+						
+						<div class="row">
+							<div class="section light-gray-bg">
+								<div class="container">
+									<h3>Contact Info</h3>
+									<jsp:useBean id="user" scope="request" class="beans.User"></jsp:useBean>
+									<form class="form-horizontal" role="form" method="post" action="itemsWantedController">
+										<div class="row">
+											<div class="col-md-4">
+												<div class="form-group has-feedback">
+													<label class="control-label" for="email"><b>Email</b></label>
+													<input type="email" class="form-control" id="contactEmail" name="contactEmail" placeholder="Email" value="" required>
+													<i class="fa fa-envelope-o form-control-feedback"></i>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<b>User can also contact me:</b>
+												<div class="checkbox">
+													<label>
+														<input type="checkbox" value="">
+														by phone
+													</label>
+													&nbsp;&nbsp;
+													<label>
+														<input type="checkbox" value="">
+														by text
+													</label>
+												</div>
+											</div>
 										</div>
-										<div class="col-md-6">
-											<ul class="list">
-												<li><a href="blog-medium-image-right-sidebar.html"><i class="icon-right-open"></i>Farm & Garden</a></li>
-												<li><a href="blog-medium-image-left-sidebar.html"><i class="icon-right-open"></i>Free</a></li>
-												<li><a href="blog-medium-image-no-sidebar.html"><i class="icon-right-open"></i>Furniture</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Garage Sale</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>General</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Heavy Equipment</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Household</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Jewelry</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Materials</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Motorcycles</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Music Instruments</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Photo & Video</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>RVs & Camp</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Sporting</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Tickets</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Tools</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Toys & Games</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Trailers</a></li>
-												<li><a href="blog-large-image-no-sidebar.html"><i class="icon-right-open"></i>Video Gaming</a></li>
-												<li><a href="itemWantedLists.jsp"><i class="icon-right-open"></i>Wanted</a></li>
-											</ul>
+										<div class="row">
+											<div class="col-md-4">
+												<div class="form-group has-feedback">
+													<label class="control-label" for="email2"><b>Confirm email</b></label>
+													<input type="text" class="form-control" id="email2" placeholder="Type email address again">
+													<i class="fa fa-envelope-o form-control-feedback"></i>
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group has-feedback">
+													<label class="control-label" for="phone"><b>Phone number</b></label>
+													<input type="text" class="form-control" id="phone">
+												</div>
+											</div>
+											<div class="col-md-4">
+												<div class="form-group has-feedback">
+													<label class="control-label" for="name"><b>Contact name</b></label>
+													<input type="text" class="form-control" id="contactName" name="contactName" value="" required>
+												</div>
+											</div>
 										</div>
-									</div>
-								</div>
-								<div class="col-md-6">
-									<h3>Housing</h3>
-									<ul class="list">	
-										<li><a href="index.html"><i class="icon-right-open"></i>Apts / Housing</a></li>
-										<li><a href="index-corporate-1.html"><i class="icon-right-open"></i>Housing Swap</a></li>
-										<li><a href="index-corporate-2.html"><i class="icon-right-open"></i>Housing Wanted</a></li>
-										<li><a href="index-corporate-3.html"><i class="icon-right-open"></i>Office / Commercial</a></li>
-										<li><a href="index-shop.html"><i class="icon-right-open"></i>Parking / Storage</a></li>
-										<li><a href="index-shop-2.html"><i class="icon-right-open"></i>Real Estate for Sale</a></li>
-										<li><a href="index-portfolio.html"><i class="icon-right-open"></i>Rooms / Shared</a></li>
-										<li><a href="index-medical.html"><i class="icon-right-open"></i>Rooms Wanted</a></li>
-										<li><a href="index-restaurant.html"><i class="icon-right-open"></i>Sublets / Temporary</a></li>
-										<li><a href="index-wedding.html"><i class="icon-right-open"></i>Vacation Rentals</a></li>
-									</ul>
+							
+									
 								</div>
 							</div>
 						</div>
-						<!-- main end -->
-
+						<br>
+						<div class="row">
+							<div class="row">
+								<div class="form-group has-success col-md-6">
+									<label class="control-label" for="title">Posting title</label>
+									<input type="text" class="form-control" id="title" name="title">
+								</div>
+								<div class="form-group col-md-3">
+									<label class="control-label" for="price">Price</label>
+									<input type="text" class="form-control" id="price" name="price">
+								</div>
+								<div class="form-group col-md-3">
+									<label class="control-label" for="postcode">Postal code</label>
+									<input type="text" class="form-control" id="postcode">
+								</div>
+							</div>
+							<div class="row">
+								<div class="form-group has-success">
+								<label class="control-label" for="postingbody">Posting body</label>
+								<textarea class="form-control" rows="10" id="postingbody" name="description">
+								</textarea>
+								</div>
+							</div>
+						</div>
+						
+						<div class="row">
+							<div class="section light-gray-bg">
+								<div class="container">
+									<h3>Posting details</h3>
+									
+										<div class="row">
+											<div class="col-md-4">
+												<div class="form-group has-feedback">
+													<label class="control-label" for="size"><b>Size / Dimensions</b></label>
+													<input type="text" class="form-control" id="size" placeholder="Length x Width x Height">
+													<i class="fa form-control-feedback"></i>
+												</div>
+											</div>
+											<div class="col-md-2">
+												<div class="form-group has-feedback">
+													<label class="control-label" for="condition"><b>Condition</b></label>
+													<select class="form-control" id="condition" name="condition">
+														<option>-</option>
+														<option>new</option>
+														<option>Like new</option>
+														<option>excellent</option>
+														<option>good</option>
+														<option>fair</option>
+														<option>salvage</option>
+													</select>
+												</div>
+											</div>
+										</div>
+										<button type="submit" class="btn btn-default" style="float:right">Continue</button>
+										<p class="login-error"><%= session.getAttribute("loginEmail") %></p>
+										<p class="login-error"><%= session.getAttribute("signupEmail") %></p>
+									</form>
+									
+								</div>
+							</div>
+						</div>
 					</div>
-				</div>
-			</section>
-			<!-- main-container end -->
 			
+					<!-- main end -->
+					
+				</div>
+			</div>
+		</section>
+		<!-- main-container end -->
+		
 			<!-- footer top start -->
 			<!-- ================ -->
 			<div class="dark-bg  default-hovered footer-top animated-text">
@@ -206,7 +254,7 @@
 
 			<!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
 			<!-- ================ -->
-			<footer id="footer" class="clearfix ">
+			<footer id="footer" class="clearfix">
 
 				<!-- .footer start -->
 				<!-- ================ -->
@@ -421,6 +469,6 @@
 		<script type="text/javascript" src="js/template.js"></script>
 		<!-- Custom Scripts -->
 		<script type="text/javascript" src="js/custom.js"></script>
-
-	</body>
+		
+</body>
 </html>

@@ -36,6 +36,15 @@ CREATE TABLE Item (
 	FOREIGN KEY (Posting_id) REFERENCES Posting(P_id) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
+CREATE TABLE ItemWanted (
+	Item_id int(11) NOT NULL AUTO_INCREMENT,
+	Posting_id int(11) NOT NULL,
+	name VARCHAR(20),
+	price VARCHAR(10),
+	PRIMARY KEY (Item_id),
+	FOREIGN KEY (Posting_id) REFERENCES Posting(P_id) ON DELETE CASCADE
+)ENGINE=InnoDB;
+
 
 
 CREATE TABLE HousingWanted (

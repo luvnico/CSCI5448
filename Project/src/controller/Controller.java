@@ -230,7 +230,7 @@ public class Controller extends HttpServlet {
 						email = (String)session.getAttribute("createEmail");
 						
 					}
-					account.post(email, title, type, description);
+					//account.post(email, title, type, description);
 					request.getRequestDispatcher("/home.jsp").forward(request, response);
 				}catch (SQLException e) {
 				

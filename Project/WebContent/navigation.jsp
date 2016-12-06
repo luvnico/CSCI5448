@@ -141,7 +141,15 @@
 																<a  class="dropdown-toggle" data-toggle="dropdown" href="#">Items</a>
 																<ul class="dropdown-menu">
 																	<li ><a href="#">For Sale</a></li>
-																	<li ><a href="postitems.jsp">Wanted</a></li>
+																	<% if (session.getAttribute("loginEmail")==null && session.getAttribute("signupEmail")==null){
+																		request.setAttribute("url", "signup.jsp");		
+																		}
+																		else
+																		request.setAttribute("url", "itemWanted.jsp");
+																		%>						
+																							
+																	<li><a href=<%=request.getAttribute("url") %>>Wanted</a></li>
+																	
 																</ul>
 															</li>
 														</ul>

@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
 <!--[if gt IE 9]> <html lang="en" class="ie"> <![endif]-->
@@ -1019,7 +1019,7 @@
 						<div class="subfooter-inner">
 							<div class="row">
 								<div class="col-md-12">
-									<p class="text-center">Copyright © 2016 The Project by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>. All Rights Reserved</p>
+									<p class="text-center">Copyright Â© 2016 The Project by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>. All Rights Reserved</p>
 								</div>
 							</div>
 						</div>
