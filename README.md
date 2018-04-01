@@ -1,5 +1,5 @@
 # CSCI5448
 
-## Team Member:
+**Team Members:**
 
 Xueyan Wu, Yihua Shi
