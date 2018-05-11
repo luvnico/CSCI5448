@@ -1,0 +1,9 @@
+# System Files
+.DS_Store
+Thumbs.db
+
+# misc
+/Project/.classpath
+/Project/.project
+/Project/.settings/*
+/Project/build/*
