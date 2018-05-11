@@ -1,24 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-<%@page import="database.Account"%>
-<%@ page import="java.sql.*" %>
-<%@ page import="javax.sql.DataSource"%>
 <%@page import="java.util.ArrayList" %>
-<%@page import="javax.servlet.http.HttpServletRequest"%>
-<%@page import="java.io.PrintWriter"%>
-<!DOCTYPE html>
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if gt IE 9]> <html lang="en" class="ie"> <![endif]-->
-<!--[if !IE]><!-->
-<html lang="en">
-	<!--<![endif]-->
+<%@page import="beans.Post" %>
 
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>The Project | Page Sitemap</title>
+		<title>User Dashboard</title>
 		<meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
-		<meta name="author" content="htmlcoder.me">
+		<meta name="author" content="Yihua Shi, Xueyan Wu">
 
 		<!-- Mobile Meta -->
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -109,7 +100,6 @@
 				<div class="container">
 					<div class="row">
 
-
 						<!-- main start -->
 						<!-- ================ -->
 						<div class="main col-md-12">
@@ -117,7 +107,7 @@
 							<!-- page-title start -->
 							<!-- ================ -->
 							<h1 class="page-title">Dashboard</h1>
-							<h4 style="float: right;" class="col-md-3">Welcome!<%= session.getAttribute("loginEmail")==null?session.getAttribute("signupEmail"):session.getAttribute("loginEmail") %></h4>
+							<h4 style="float: right;" class="col-md-3">Welcome! <%=usr%></h4>
 							<div class="separator-2"></div>
 							<!-- page-title end -->
 							<div class="row">
@@ -128,91 +118,55 @@
 								<ul class="nav nav-tabs style-2" role="tablist">
 									<li class="active"><a href="#h3tab1" role="tab" data-toggle="tab" aria-expanded="true"><i class="fa fa-file-text pr-10"></i>Postings</a></li>
 									<li class=""><a href="#h3tab2" role="tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-star pr-10"></i>Favorites</a></li>
-									<li class=""><a href="#h3tab3" role="tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-cog pr-10"></i>Settings</a></li>
+									<li class=""><a href="#h3tab3" role="tab" data-toggle="tab" aria-expanded="false"><i class="fa fa-cog pr-10"></i>Your Profile</a></li>
 								</ul>
 								<!-- Tab panes -->
 								<div class="tab-content">
 									<div class="tab-pane active" id="h3tab1">
 										<div class="row">
 											<div class="col-md-12">
-											<p class="message"></p>
-											<%/*
-											ArrayList<String> result = new ArrayList<String>();	
-											request.setAttribute("result", request.getAttribute("postings"));
-											String[] row = new String[3];
-											//int m=0;
-											for (int i=0;i<(Integer)request.getAttribute("count");i++){
-												row[i]=result.get(i);	
-												//m++;
-											}*/
-											
-											%>
+				
 											<table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
 										        <thead>
 										            <tr>
-										                <th>Status</th>
 										                <th>Posting Title</th>
 										                <th>Area & Category</th>
-										                <th>Manage</th> 
-										                <th>Posted Date</th>
+										                <th>Status</th> 
+										                <th>Created</th>
+										                <th>Modified</th>
 										            </tr>
 										        </thead>
 										        <tbody>
 										        
-<% 
-
-
-    String connectionURL = "jdbc:mysql://localhost:3306/CraigsList";
-    Connection connection = null; 
-    Class.forName("com.mysql.jdbc.Driver").newInstance(); 
-    connection = DriverManager.getConnection(connectionURL, "root", "root");
-    ArrayList titleResult = new ArrayList();;
-    int count=0;
-    if(!connection.isClosed())
-         out.println("Successfully connected to " + "MySQL server using TCP/IP...");
-    
-    String email = session.getAttribute("loginEmail")==null?(String)session.getAttribute("signupEmail"):(String)session.getAttribute("loginEmail");
-    Statement statement = connection.createStatement();
-
-    	
-	ResultSet resultset = statement.executeQuery("select status, title, type from Posting where User_Email = '" + email + "'"); 
-
-	if(!resultset.next()) {
-		out.println("You haven't post yet. ");
-	} else {
-		
-		while (resultset.next()) {
-	        titleResult.add(resultset.getString(1));
-	        titleResult.add(resultset.getString(2));
-	        titleResult.add(resultset.getString(3));
-	        count++;
-        
-		}
-			//request.setAttribute("postings", titleResult);
-			//request.setAttribute("count", i);
-			
-	} 
-    	connection.close();
- 
-			
-										        //PrintWriter out1 = response.getWriter();
-										     int j; 
-										     int i;
-										      for(i=0;i<count;i++) {
-										   // while(titleResult!=null){
-										    	  out.println("<tr>");
-										          for (j=3*i;j<3*(i+1);j++){ 
-										        	
-										            out.println("<td>");
-										            out.println(titleResult.get(j));
-										            //titleResult.remove(j);
-										            out.println("</td>");  
-										            
-										          }
-										          out.println("</tr>");
-										    //}     
-										      }
-%>   
+											<%   	
+											   	 int count = (Integer)request.getAttribute("count");
+											   	 ArrayList titleResult = (ArrayList)request.getAttribute("postings");
+											 	 
+											     for(int i=0;i<count;i++){
+											    	Post p = (Post)titleResult.get(i);
+											    	out.println("<tr>");
+											    	out.println("<td>");
+											      	out.println("<a href=\"itemsWanted?pid="+p.getPid()+"\">"+p.getTitle()+"</a>");
+											    	out.println("</td>");
+											    	
+											    	out.println("<td>");
+											      	out.println(p.getType());
+											    	out.println("</td>");
+											    	
+											    	out.println("<td>");
+											      	out.println(p.getStatus());
+											    	out.println("</td>");
+											    	
+													out.println("<td>");
+											      	out.println(p.getC_date());
+											    	out.println("</td>");
+											    	
+													out.println("<td>");
+											      	out.println(p.getM_date());
+											    	out.println("</td>");
+											        out.println("</tr>");  
+											      }
+											%>   
 											
 										        </tbody>
 										    </table>
@@ -228,8 +182,9 @@
 										    });
 										</script>
 
-										<a href="page-services.html" class="btn btn-default margin-clear">Read more</a>
+										<a href="#" class="btn btn-default margin-clear">Read more</a>
 									</div>
+									
 									<div class="tab-pane" id="h3tab2">
 										<div class="row">
 											<div class="col-md-6">
@@ -252,9 +207,9 @@
 											<div class="col-md-10">
 												<form class="form-horizontal" role="form">
 													<div class="form-group has-feedback">
-														<label for="inputEmail" class="col-sm-3 control-label">Email <span class="text-danger small">*</span></label>
+														<label class="col-sm-3 control-label">Email </label>
 														<div class="col-sm-8">
-															<input type="email" class="form-control" id="inputEmail" placeholder="Email" required="">
+															<input type="email" class="form-control" id="inputEmail" placeholder="Email" value=<%=usr%> disabled>
 															<i class="fa fa-envelope form-control-feedback"></i>
 														</div>
 													</div>
@@ -267,21 +222,21 @@
 											<div class="form-group has-feedback">
 												<label for="inputPassword" class="col-sm-3 control-label">Old Password <span class="text-danger small">*</span></label>
 												<div class="col-sm-8">
-													<input type="password" class="form-control" id="inputPassword" placeholder="Password" required="">
+													<input type="password" class="form-control" id="inputPassword" placeholder="Old Password" required="">
 													<i class="fa fa-lock form-control-feedback"></i>
 												</div>
 											</div>
 											<div class="form-group has-feedback">
-												<label for="inputPassword" class="col-sm-3 control-label">New Password <span class="text-danger small">*</span></label>
+												<label for="password1" class="col-sm-3 control-label">New Password <span class="text-danger small">*</span></label>
 												<div class="col-sm-8">
-													<input type="password" class="form-control" id="inputPassword" placeholder="Password" required="">
+													<input type="password" class="form-control" id="password1" placeholder="New Password" required="">
 													<i class="fa fa-lock form-control-feedback"></i>
 												</div>
 											</div>
 											<div class="form-group has-feedback">
-												<label class="col-sm-3 control-label">Confirm your password <span class="text-danger small">*</span></label>
+												<label for="password2" class="col-sm-3 control-label">Confirm your password <span class="text-danger small">*</span></label>
 												<div class="col-sm-8">
-													<input type="password" class="form-control" id="inputPassword" placeholder="Password" required="">
+													<input type="password" class="form-control" id="password2" placeholder="Confirm Password" required="">
 													<i class="fa fa-lock form-control-feedback"></i>
 												</div>
 											</div>
@@ -308,217 +263,6 @@
 				</div>
 			</section>
 			<!-- main-container end -->
-			
-			<!-- footer top start -->
-			<!-- ================ -->
-			<div class="dark-bg  default-hovered footer-top animated-text">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="call-to-action text-center">
-								<div class="row">
-									<div class="col-sm-8">
-										<h2>Powerful Bootstrap Template</h2>
-										<h2>Waste no more time</h2>
-									</div>
-									<div class="col-sm-4">
-										<p class="mt-10"><a href="#" class="btn btn-animated btn-lg btn-gray-transparent ">Purchase<i class="fa fa-cart-arrow-down pl-20"></i></a></p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- footer top end -->
-
-			<!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
-			<!-- ================ -->
-			<footer id="footer" class="clearfix ">
-
-				<!-- .footer start -->
-				<!-- ================ -->
-				<div class="footer">
-					<div class="container">
-						<div class="footer-inner">
-							<div class="row">
-								<div class="col-md-3">
-									<div class="footer-content">
-										<div class="logo-footer"><img id="logo-footer" src="images/logo_light_blue.png" alt=""></div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat... <a href="page-about.html">Learn More<i class="fa fa-long-arrow-right pl-5"></i></a></p>
-										<div class="separator-2"></div>
-										<nav>
-											<ul class="nav nav-pills nav-stacked">
-												<li><a target="_blank" href="http://htmlcoder.me/support">Support</a></li>
-												<li><a href="#">Privacy</a></li>
-												<li><a href="#">Terms</a></li>
-												<li><a href="page-about.html">About</a></li>
-											</ul>
-										</nav>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="footer-content">
-										<h2 class="title">Latest From Blog</h2>
-										<div class="separator-2"></div>
-										<div class="media margin-clear">
-											<div class="media-left">
-												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-1.jpg" alt="blog-thumb">
-													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-												</div>
-											</div>
-											<div class="media-body">
-												<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-												<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 23, 2016</p>
-											</div>
-											<hr>
-										</div>
-										<div class="media margin-clear">
-											<div class="media-left">
-												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-2.jpg" alt="blog-thumb">
-													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-												</div>
-											</div>
-											<div class="media-body">
-												<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-												<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 22, 2016</p>
-											</div>
-											<hr>
-										</div>
-										<div class="media margin-clear">
-											<div class="media-left">
-												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-3.jpg" alt="blog-thumb">
-													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-												</div>
-											</div>
-											<div class="media-body">
-												<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-												<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2016</p>
-											</div>
-											<hr>
-										</div>
-										<div class="media margin-clear">
-											<div class="media-left">
-												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-4.jpg" alt="blog-thumb">
-													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-												</div>
-											</div>
-											<div class="media-body">
-												<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-												<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2016</p>
-											</div>
-										</div>
-										<div class="text-right space-top">
-											<a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>More</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="footer-content">
-										<h2 class="title">Portfolio Gallery</h2>
-										<div class="separator-2"></div>
-										<div class="row grid-space-10">
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-1.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-2.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-3.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-4.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-5.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-6.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-										</div>
-										<div class="text-right space-top">
-											<a href="portfolio-grid-2-3-col.html" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>More</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="footer-content">
-										<h2 class="title">Find Us</h2>
-										<div class="separator-2"></div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.</p>
-										<ul class="social-links circle animated-effect-1">
-											<li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-											<li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-											<li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-											<li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-											<li class="xing"><a target="_blank" href="http://www.xing.com"><i class="fa fa-xing"></i></a></li>
-										</ul>
-										<div class="separator-2"></div>
-										<ul class="list-icons">
-											<li><i class="fa fa-map-marker pr-10 text-default"></i> One infinity loop, 54100</li>
-											<li><i class="fa fa-phone pr-10 text-default"></i> +00 1234567890</li>
-											<li><a href="mailto:info@theproject.com"><i class="fa fa-envelope-o pr-10"></i>info@theproject.com</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- .footer end -->
-
-				<!-- .subfooter start -->
-				<!-- ================ -->
-				<div class="subfooter">
-					<div class="container">
-						<div class="subfooter-inner">
-							<div class="row">
-								<div class="col-md-12">
-									<p class="text-center">Copyright Â© 2016 The Project by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>. All Rights Reserved</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- .subfooter end -->
-
-			</footer>
-			<!-- footer end -->
 			
 		</div>
 		<!-- page-wrapper end -->
