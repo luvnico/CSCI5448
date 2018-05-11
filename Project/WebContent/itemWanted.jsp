@@ -3,57 +3,51 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Item Wanted</title>
-	<head>
-		<meta charset="utf-8">
-		<title>The Project | Page Sitemap</title>
-		<meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
-		<meta name="author" content="htmlcoder.me">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Post to Item Wanted</title>
+	<meta name="description" content="The Project a Bootstrap-based, Responsive HTML5 Template">
+	<meta name="author" content="htmlcoder.me">
 
-		<!-- Mobile Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<!-- Mobile Meta -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<!-- Favicon -->
-		<link rel="shortcut icon" href="images/favicon.ico">
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="images/favicon.ico">
 
-		<!-- Web Fonts -->
-		<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
+	<!-- Web Fonts -->
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,500italic,700,700italic' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=PT+Serif' rel='stylesheet' type='text/css'>
 
-		<!-- Bootstrap core CSS -->
-		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+	<!-- Bootstrap core CSS -->
+	<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
 
-		<!-- Font Awesome CSS -->
-		<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+	<!-- Font Awesome CSS -->
+	<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
 
-		<!-- Fontello CSS -->
-		<link href="fonts/fontello/css/fontello.css" rel="stylesheet">
+	<!-- Fontello CSS -->
+	<link href="fonts/fontello/css/fontello.css" rel="stylesheet">
 
-		<!-- Plugins -->
-		<link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
-		<link href="css/animations.css" rel="stylesheet">
-		<link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
-		<link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
-		<link href="plugins/hover/hover-min.css" rel="stylesheet">		
-		
-		<!-- The Project's core CSS file -->
-		<link href="css/style.css" rel="stylesheet" >
-		<!-- The Project's Typography CSS file, includes used fonts -->
-		<!-- Used font for body: Roboto -->
-		<!-- Used font for headings: Raleway -->
-		<link href="css/typography-default.css" rel="stylesheet" >
-		<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
-		<link href="css/skins/light_blue.css" rel="stylesheet">
-		
+	<!-- Plugins -->
+	<link href="plugins/magnific-popup/magnific-popup.css" rel="stylesheet">
+	<link href="css/animations.css" rel="stylesheet">
+	<link href="plugins/owl-carousel/owl.carousel.css" rel="stylesheet">
+	<link href="plugins/owl-carousel/owl.transitions.css" rel="stylesheet">
+	<link href="plugins/hover/hover-min.css" rel="stylesheet">		
+	
+	<!-- The Project's core CSS file -->
+	<link href="css/style.css" rel="stylesheet" >
+	<!-- The Project's Typography CSS file, includes used fonts -->
+	<!-- Used font for body: Roboto -->
+	<!-- Used font for headings: Raleway -->
+	<link href="css/typography-default.css" rel="stylesheet" >
+	<!-- Color Scheme (In order to change the color scheme, replace the blue.css with the color scheme that you prefer)-->
+	<link href="css/skins/light_blue.css" rel="stylesheet">
 
-		<!-- Custom css --> 
-		<link href="css/custom.css" rel="stylesheet">
+	<!-- Custom css --> 
+	<link href="css/custom.css" rel="stylesheet">
 </head>
-
-
 
 <!-- body classes:  -->
 <!-- "boxed": boxed layout mode e.g. <body class="boxed"> -->
@@ -103,92 +97,95 @@
 						<h1 class="page-title">Items Wanted</h1>
 						<div class="separator-2"></div>
 						<!-- page-title end -->
-						
 						<div class="row">
-							<div class="section light-gray-bg">
-								<div class="container">
-									<h3>Contact Info</h3>
-									<jsp:useBean id="user" scope="request" class="beans.User"></jsp:useBean>
-									<form class="form-horizontal" role="form" method="post" action="itemsWantedController">
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group has-feedback">
-													<label class="control-label" for="email"><b>Email</b></label>
-													<input type="email" class="form-control" id="contactEmail" name="contactEmail" placeholder="Email" value="" required>
-													<i class="fa fa-envelope-o form-control-feedback"></i>
+						<jsp:useBean id="user" scope="request" class="beans.User"></jsp:useBean>
+						<form class="form-horizontal" role="form" method="post" action="itemsWanted">
+							<div class="row">
+								<div class="section light-gray-bg">
+									<div class="container">
+										<h3>Contact Info</h3>
+											<div class="row post-row">
+												<div class="col-md-4">
+													<div class="form-group has-feedback">
+														<label class="control-label" for="email"><b>Email</b></label>
+														<input type="email" class="form-control" id="contactEmail" name="contactEmail" placeholder="Email" value="" required>
+														<i class="fa fa-envelope-o form-control-feedback"></i>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<b>User can also contact me:</b>
+													<div class="checkbox">
+														<label>
+															<input type="checkbox" value="">
+															by phone
+														</label>
+														&nbsp;&nbsp;
+														<label>
+															<input type="checkbox" value="">
+															by text
+														</label>
+													</div>
 												</div>
 											</div>
-											<div class="col-md-4">
-												<b>User can also contact me:</b>
-												<div class="checkbox">
-													<label>
-														<input type="checkbox" value="">
-														by phone
-													</label>
-													&nbsp;&nbsp;
-													<label>
-														<input type="checkbox" value="">
-														by text
-													</label>
+											<div class="row post-row">
+												<div class="col-md-4">
+													<div class="form-group has-feedback">
+														<label class="control-label" for="email2"><b>Confirm email</b></label>
+														<input type="email" class="form-control" id="email2" placeholder="Type email address again">
+														<i class="fa fa-envelope-o form-control-feedback"></i>
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group has-feedback">
+														<label class="control-label" for="phone"><b>Phone number</b></label>
+														<input type="text" class="form-control" id="phone">
+													</div>
+												</div>
+												<div class="col-md-4">
+													<div class="form-group has-feedback">
+														<label class="control-label" for="name"><b>Contact name</b></label>
+														<input type="text" class="form-control" id="contactName" name="contactName" value="" required>
+													</div>
 												</div>
 											</div>
+	
+									</div>
+								</div>
+							</div>
+							<br>
+							<div class="row">
+								<div class="col-md-12">
+									<div class="col-md-6">
+										<div class="form-group has-success">
+											<label class="control-label" for="title">Posting title</label>
+											<input type="text" class="form-control" id="title" name="title" required>
 										</div>
-										<div class="row">
-											<div class="col-md-4">
-												<div class="form-group has-feedback">
-													<label class="control-label" for="email2"><b>Confirm email</b></label>
-													<input type="text" class="form-control" id="email2" placeholder="Type email address again">
-													<i class="fa fa-envelope-o form-control-feedback"></i>
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group has-feedback">
-													<label class="control-label" for="phone"><b>Phone number</b></label>
-													<input type="text" class="form-control" id="phone">
-												</div>
-											</div>
-											<div class="col-md-4">
-												<div class="form-group has-feedback">
-													<label class="control-label" for="name"><b>Contact name</b></label>
-													<input type="text" class="form-control" id="contactName" name="contactName" value="" required>
-												</div>
-											</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label" for="price">Price</label>
+											<input type="text" class="form-control" id="price" name="price">
 										</div>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label" for="postcode">Postal code</label>
+											<input type="text" class="form-control" id="postcode">
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12">
+									<div class="form-group has-success post-body">
+									<label class="control-label" for="postingbody">Posting body</label>
+									<textarea class="form-control" rows="10" id="postingbody" name="description" required></textarea>
+									</div>
+								</div>
+							</div>
 							
-									
-								</div>
-							</div>
-						</div>
-						<br>
-						<div class="row">
 							<div class="row">
-								<div class="form-group has-success col-md-6">
-									<label class="control-label" for="title">Posting title</label>
-									<input type="text" class="form-control" id="title" name="title">
-								</div>
-								<div class="form-group col-md-3">
-									<label class="control-label" for="price">Price</label>
-									<input type="text" class="form-control" id="price" name="price">
-								</div>
-								<div class="form-group col-md-3">
-									<label class="control-label" for="postcode">Postal code</label>
-									<input type="text" class="form-control" id="postcode">
-								</div>
-							</div>
-							<div class="row">
-								<div class="form-group has-success">
-								<label class="control-label" for="postingbody">Posting body</label>
-								<textarea class="form-control" rows="10" id="postingbody" name="description">
-								</textarea>
-								</div>
-							</div>
-						</div>
-						
-						<div class="row">
-							<div class="section light-gray-bg">
-								<div class="container">
-									<h3>Posting details</h3>
-									
+								<div class="section light-gray-bg">
+									<div class="container">
+										<h3>Posting details</h3>
 										<div class="row">
 											<div class="col-md-4">
 												<div class="form-group has-feedback">
@@ -212,14 +209,13 @@
 												</div>
 											</div>
 										</div>
-										<button type="submit" class="btn btn-default" style="float:right">Continue</button>
-										<p class="login-error"><%= session.getAttribute("loginEmail") %></p>
-										<p class="login-error"><%= session.getAttribute("signupEmail") %></p>
-									</form>
-									
+										<button type="submit" class="btn btn-default" style="float:right">Continue</button>	
+									</div>
 								</div>
 							</div>
+						</form>
 						</div>
+						
 					</div>
 			
 					<!-- main end -->
@@ -229,216 +225,6 @@
 		</section>
 		<!-- main-container end -->
 		
-			<!-- footer top start -->
-			<!-- ================ -->
-			<div class="dark-bg  default-hovered footer-top animated-text">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="call-to-action text-center">
-								<div class="row">
-									<div class="col-sm-8">
-										<h2>Powerful Bootstrap Template</h2>
-										<h2>Waste no more time</h2>
-									</div>
-									<div class="col-sm-4">
-										<p class="mt-10"><a href="#" class="btn btn-animated btn-lg btn-gray-transparent ">Purchase<i class="fa fa-cart-arrow-down pl-20"></i></a></p>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- footer top end -->
-
-			<!-- footer start (Add "dark" class to #footer in order to enable dark footer) -->
-			<!-- ================ -->
-			<footer id="footer" class="clearfix">
-
-				<!-- .footer start -->
-				<!-- ================ -->
-				<div class="footer">
-					<div class="container">
-						<div class="footer-inner">
-							<div class="row">
-								<div class="col-md-3">
-									<div class="footer-content">
-										<div class="logo-footer"><img id="logo-footer" src="images/logo_light_blue.png" alt=""></div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus illo vel dolorum soluta consectetur doloribus sit. Delectus non tenetur odit dicta vitae debitis suscipit doloribus. Ipsa, aut voluptas quaerat... <a href="page-about.html">Learn More<i class="fa fa-long-arrow-right pl-5"></i></a></p>
-										<div class="separator-2"></div>
-										<nav>
-											<ul class="nav nav-pills nav-stacked">
-												<li><a target="_blank" href="http://htmlcoder.me/support">Support</a></li>
-												<li><a href="#">Privacy</a></li>
-												<li><a href="#">Terms</a></li>
-												<li><a href="page-about.html">About</a></li>
-											</ul>
-										</nav>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="footer-content">
-										<h2 class="title">Latest From Blog</h2>
-										<div class="separator-2"></div>
-										<div class="media margin-clear">
-											<div class="media-left">
-												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-1.jpg" alt="blog-thumb">
-													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-												</div>
-											</div>
-											<div class="media-body">
-												<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-												<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 23, 2016</p>
-											</div>
-											<hr>
-										</div>
-										<div class="media margin-clear">
-											<div class="media-left">
-												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-2.jpg" alt="blog-thumb">
-													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-												</div>
-											</div>
-											<div class="media-body">
-												<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-												<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 22, 2016</p>
-											</div>
-											<hr>
-										</div>
-										<div class="media margin-clear">
-											<div class="media-left">
-												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-3.jpg" alt="blog-thumb">
-													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-												</div>
-											</div>
-											<div class="media-body">
-												<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-												<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2016</p>
-											</div>
-											<hr>
-										</div>
-										<div class="media margin-clear">
-											<div class="media-left">
-												<div class="overlay-container">
-													<img class="media-object" src="images/blog-thumb-4.jpg" alt="blog-thumb">
-													<a href="blog-post.html" class="overlay-link small"><i class="fa fa-link"></i></a>
-												</div>
-											</div>
-											<div class="media-body">
-												<h6 class="media-heading"><a href="blog-post.html">Lorem ipsum dolor sit amet...</a></h6>
-												<p class="small margin-clear"><i class="fa fa-calendar pr-10"></i>Mar 21, 2016</p>
-											</div>
-										</div>
-										<div class="text-right space-top">
-											<a href="blog-large-image-right-sidebar.html" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>More</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="footer-content">
-										<h2 class="title">Portfolio Gallery</h2>
-										<div class="separator-2"></div>
-										<div class="row grid-space-10">
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-1.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-2.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-3.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-4.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-5.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-											<div class="col-xs-4 col-md-6">
-												<div class="overlay-container mb-10">
-													<img src="images/gallery-6.jpg" alt="">
-													<a href="portfolio-item.html" class="overlay-link small">
-														<i class="fa fa-link"></i>
-													</a>
-												</div>
-											</div>
-										</div>
-										<div class="text-right space-top">
-											<a href="portfolio-grid-2-3-col.html" class="link-dark"><i class="fa fa-plus-circle pl-5 pr-5"></i>More</a>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-3">
-									<div class="footer-content">
-										<h2 class="title">Find Us</h2>
-										<div class="separator-2"></div>
-										<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium odio voluptatem necessitatibus illo vel dolorum soluta.</p>
-										<ul class="social-links circle animated-effect-1">
-											<li class="facebook"><a target="_blank" href="http://www.facebook.com"><i class="fa fa-facebook"></i></a></li>
-											<li class="twitter"><a target="_blank" href="http://www.twitter.com"><i class="fa fa-twitter"></i></a></li>
-											<li class="googleplus"><a target="_blank" href="http://plus.google.com"><i class="fa fa-google-plus"></i></a></li>
-											<li class="linkedin"><a target="_blank" href="http://www.linkedin.com"><i class="fa fa-linkedin"></i></a></li>
-											<li class="xing"><a target="_blank" href="http://www.xing.com"><i class="fa fa-xing"></i></a></li>
-										</ul>
-										<div class="separator-2"></div>
-										<ul class="list-icons">
-											<li><i class="fa fa-map-marker pr-10 text-default"></i> One infinity loop, 54100</li>
-											<li><i class="fa fa-phone pr-10 text-default"></i> +00 1234567890</li>
-											<li><a href="mailto:info@theproject.com"><i class="fa fa-envelope-o pr-10"></i>info@theproject.com</a></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- .footer end -->
-
-				<!-- .subfooter start -->
-				<!-- ================ -->
-				<div class="subfooter">
-					<div class="container">
-						<div class="subfooter-inner">
-							<div class="row">
-								<div class="col-md-12">
-									<p class="text-center">Copyright Â© 2016 The Project by <a target="_blank" href="http://htmlcoder.me">HtmlCoder</a>. All Rights Reserved</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<!-- .subfooter end -->
-
-			</footer>
-			<!-- footer end -->
 			
 		</div>
 		<!-- page-wrapper end -->
