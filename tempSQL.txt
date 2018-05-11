@@ -1,5 +1,5 @@
 CREATE TABLE Authentication (
-	emailAddress VARCHAR(20) NOT NULL PRIMARY KEY,
+	emailAddress VARCHAR(255) NOT NULL PRIMARY KEY,
 	password_hash CHAR(200) NOT NULL,
 	FOREIGN KEY (emailAddress) REFERENCES User(emailAddress) ON DELETE CASCADE
 )ENGINE=InnoDB;	
@@ -7,17 +7,22 @@ CREATE TABLE Authentication (
 
 
 CREATE TABLE User (
-	emailAddress VARCHAR(20) NOT NULL PRIMARY KEY,
+	emailAddress VARCHAR(255) NOT NULL PRIMARY KEY,
 	loginStatus Bool
 )ENGINE=InnoDB;	
 
 
 CREATE TABLE Posting (
 	P_id int(11) NOT NULL AUTO_INCREMENT,
-	User_Email VARCHAR(20) NOT NULL, 
+	User_Email VARCHAR(255) NOT NULL, 
 	title VARCHAR(50) NOT NULL,
 	type VARCHAR(20) NOT NULL,
 	description VARCHAR(500),
+	contactEmail VARCHAR(20),
+	contactName VARCHAR(20),
+	status VARCHAR(10),
+	create_date VARCHAR(20),
+	modified_date VARCHAR(20),
 	PRIMARY KEY (P_id),
 	FOREIGN KEY (User_Email) REFERENCES User(emailAddress) ON DELETE CASCADE
 )ENGINE=InnoDB;	
@@ -78,7 +83,10 @@ CREATE TABLE HousingOffered (
 	FOREIGN KEY (Posting_id) REFERENCES Posting(P_id) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
-ALTER TABLE Posting ADD COLUMN contactEmail VARCHAR(20);
-ALTER TABLE Posting ADD COLUMN contactName VARCHAR(20);
-ALTER TABLE Posting ADD COLUMN status VARCHAR(10);
+//ALTER TABLE Posting ADD COLUMN contactEmail VARCHAR(20);
+//ALTER TABLE Posting MODIFY contactEmail VARCHAR(255);
 
+//ALTER TABLE Posting ADD COLUMN contactName VARCHAR(20);
+//ALTER TABLE Posting ADD COLUMN status VARCHAR(10);
+//ALTER TABLE Posting ADD COLUMN create_date VARCHAR(20);
+//ALTER TABLE Posting ADD COLUMN modified_date VARCHAR(20);
