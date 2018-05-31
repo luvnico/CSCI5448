@@ -11,7 +11,6 @@ import javax.naming.NamingException;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -57,8 +56,8 @@ public class SignupController extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession(true);
-		PrintWriter out = response.getWriter();
+		//HttpSession session = request.getSession(true);
+		//PrintWriter out = response.getWriter();
 		request.getRequestDispatcher("/signup.jsp").forward(request, response);
 	}
 
@@ -87,7 +86,6 @@ public class SignupController extends HttpServlet {
 		String password = request.getParameter("password");
 		String repeatPassword = request.getParameter("repeatPassword");
 		
-		session.setAttribute("signupEmail", email);
 		request.setAttribute("password", "");
 		request.setAttribute("repeatPassword", "");
 		
@@ -101,6 +99,7 @@ public class SignupController extends HttpServlet {
 			
 			if(!user.validate()) {
 				// Password or email address has wrong format.
+				// get message from the User bean
 				request.setAttribute("signupMessage", user.getMessage());
 				request.getRequestDispatcher("/signup.jsp").forward(request, response);
 			}
@@ -108,16 +107,18 @@ public class SignupController extends HttpServlet {
 				try {
 					if(account.exists(email)) {
 						// This email address already exists in the user database.
-						request.setAttribute("signupMessage", "An account with this email address already exists");
+						request.setAttribute("signupMessage", "An account with this email address already exists!");
 						request.getRequestDispatcher("/signup.jsp").forward(request, response);
 					}
 					else {
 						// We create create the account.
+						System.out.println("signup SUCCESS");
 						account.create(email, password);
-						request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
+						// and set up the session
+						session.setAttribute("signupEmail", email);
+						request.getRequestDispatcher("/Dashboard").forward(request, response);
 					}
 				} catch (SQLException e) {
-					
 					request.getRequestDispatcher("/error.jsp").forward(request, response);
 				}
 			}
