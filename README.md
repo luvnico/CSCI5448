@@ -20,36 +20,48 @@ A simplified, classified advertisements website like Craigslist with sections de
 
 **Interfaces: [For medium/large screen devices]**
 
-- Homepage
+- Homepage:
+
 ![Homepage](/screenshots/homepage.png)
 
-- Homepage (w/ expanded menu)
+- Homepage (w/ expanded menu):
+
 ![Menu](/screenshots/homepage-with-menu-expanded.png)
 
-- Sign In/Up page (w/ sign-in box shown)
+- Sign In/Up page (w/ sign-in box shown):
+
 ![Sign In](/screenshots/signin.png)
 
-- Sign In/Up page (w/ sign-up box shown)
+- Sign In/Up page (w/ sign-up box shown):
+
 ![Sign Up](/screenshots/signup.png)
 
-- Create a post for items wanted
+- Create a post for items wanted:
+
 ![Create Post](/screenshots/createpost.png)
 
-- Post Preview before published
+- Post Preview before published:
+
 ![Post Preview](/screenshots/postpreview.png)
 
-- User Dashboard
+- User Dashboard:
+
 ![User Dashboard](/screenshots/dashboard.png)
 
-- List View for Published Posts
+- List View for Published Posts:
 
-- Single Post View for Published Posts
+![List View for Published Posts](/screenshots/listview.png)
+
+- Single Post View for Published Posts:
+
 ![Published View](/screenshots/publishedview.png)
 
 **[For mobile devices]**
 
-- Homepage
-<img src="/screenshots/mobileview-home.png" alt="Homepage - mobile" width="50%">
+- Homepage:
 
-- List View for Published Posts
-<img src="/screenshots/mobileview-publishedpostlist.png" alt="Published Posts List - mobile" width="50%">
+<img src="/screenshots/mobileview-home.png" alt="Homepage - mobile" width="35%">
+
+- List View for Published Posts:
+
+<img src="/screenshots/mobileview-publishedpostlist.png" alt="Published Posts List - mobile" width="35%">
