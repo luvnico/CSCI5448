@@ -11,14 +11,14 @@ import javax.servlet.http.HttpSession;
 /**
  * Servlet implementation class logout
  */
-@WebServlet("/logout")
-public class logout extends HttpServlet {
+@WebServlet("/Logout")
+public class Logout extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public logout() {
+    public Logout() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -27,10 +27,12 @@ public class logout extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
+		// return the current session if exists one, will NOT create new session
 		HttpSession session = request.getSession(false);
 		if(session != null)
+			//Invalidates this session then unbinds any objects bound to it
 		    session.invalidate();
+		//redirect to home page
 		request.getRequestDispatcher("/home.jsp").forward(request,response);
 	}
 
