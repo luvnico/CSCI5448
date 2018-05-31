@@ -9,6 +9,8 @@ Xueyan Wu, Yihua Shi
 
 A simplified, classified advertisements website like Craigslist with sections devoted to jobs, housing, personals, items wanted and for sale. Provides conveniency just as the classic Craigslist but has a modern interface design. Users can create their accounts and post their need or items to be shared.
 
+Deployed on Apache Tomcat server with Eclipse.
+
 **Functionalities:**
 
 - User can create an account
