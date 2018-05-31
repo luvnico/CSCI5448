@@ -1,4 +1,4 @@
-package com.howtodoinjava.hashing.password.demo.bcrypt;
+package bcrypt;
 
 // Copyright (c) 2006 Damien Miller <djm@mindrot.org>
 //
