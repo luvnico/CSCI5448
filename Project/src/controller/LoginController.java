@@ -11,14 +11,12 @@ import javax.naming.NamingException;
 import javax.servlet.Servlet;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
-import beans.User;
 import database.Account;
 
 
@@ -59,8 +57,12 @@ public class LoginController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		HttpSession session = request.getSession(true);
-		PrintWriter out = response.getWriter();
-		request.getRequestDispatcher("/signup.jsp").forward(request, response);
+		//PrintWriter out = response.getWriter();
+		/* Automatically redirect to dashboard if logged in*/
+		if(session.getAttribute("loginEmail") != null)
+			request.getRequestDispatcher("/Dashboard").forward(request, response);
+		else
+			request.getRequestDispatcher("/signup.jsp").forward(request, response);
 	}
 
 	/**
@@ -79,7 +81,6 @@ public class LoginController extends HttpServlet {
 			out.println("Unable to connect to database.");
 			System.out.println("Unable to connect to database.");
 			return;
-			//throw new ServletException();
 		}
 
 		Account account = new Account(conn);
@@ -87,27 +88,29 @@ public class LoginController extends HttpServlet {
 		String email = request.getParameter("loginEmail");
 		String password = request.getParameter("loginPassword");
 		
-		session.setAttribute("loginEmail", email);
-		//session.setAttribute("loginPassword", password);
-		
-		request.setAttribute("loginEmail", email);
-		request.setAttribute("loginPassword", password);
-		
-		User user = new User(email, password);
-		
 		try {
-			if(account.login(email, password)) {
-				request.getRequestDispatcher("/dashboard.jsp").forward(request, response);
+			if(account.exists(email)) {
+				//if the email account exists and is verified by db
+				if(account.login(email, password)) {
+					//start session
+					session.setAttribute("loginEmail", email);
+					//send account info to dashboard controller
+					request.setAttribute("loginEmail", email);
+					request.setAttribute("loginPassword", password);
+					request.getRequestDispatcher("/Dashboard").forward(request, response);
+				}
+				else{
+					request.setAttribute("loginMessage", "Incorrect password!");
+					request.getRequestDispatcher("/signup.jsp").forward(request, response);
+				}
 			}
 			else {
-				request.setAttribute("message", "email address or password not recognised");
+				request.setAttribute("loginMessage", "Email address doesn't exist!");
 				request.getRequestDispatcher("/signup.jsp").forward(request, response);
 			}
 		} catch (SQLException e) {
-
-			request.setAttribute("email", "Database error: please try again later.");
+			request.setAttribute("loginMessage", "Database error: "+e.getStackTrace());
 			request.getRequestDispatcher("/signup.jsp").forward(request, response);
-			
 		}
 	
 	}
