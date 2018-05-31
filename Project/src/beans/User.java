@@ -3,7 +3,6 @@ package beans;
 public class User {
 	private String email = "";
 	private String password = "";
-	
 	private String message = "";
 	
 	public String getMessage() {
@@ -36,24 +35,15 @@ public class User {
 	}
 	
 	public boolean validate() {
-		
-		if(email == null) {
-			message = "Invalid email address";
-			return false;
-		}
-		
-		if(password == null) {
-			message = "Invalid password";
-			return false;
-		}
+		// email & password are guaranteed not to be empty via form validation
 		
 		if(!email.matches("\\w+@\\w+\\.\\w+")) {
-			message = "Invalid email address";
+			message = "Invalid email address!";
 			return false;
 		}
 		
 		if(password.length() < 8) {
-			message = "Password must be at least 8 characters.";
+			message = "Password must have at least 8 characters.";
 			return false;
 		}
 		else if(password.matches("\\w*\\s+\\w*")) {
